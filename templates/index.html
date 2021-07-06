@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+	<link rel="canonical" href="https://vapronva.pw/" />
+	<meta name="robots" content="index, follow" />
+	<link rel="shortcut icon" type="image/png" href="{{url_for('static',filename='images/favicon.png')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/bootstrap.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/animate.css')}}">
+	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap&subset=latin,latin-ext'
+		rel='stylesheet' type='text/css'>
+	<title>@vapronva</title>
+
+</head>
+
+
+<body>
+	<div class="page-container">
+
+		<div class="mainfs fillingscreen bggrad lighthuch" id="intro">
+			<div class="container">
+				<div class="row">
+					<div class="align-self-center col-lg-3">
+						<img src="{{url_for('static',filename='images/main_pfp.jpeg')}}"
+							class="img-fluid rounded-circle mx-auto d-block pulse-hvr profilepic animated fadeIn animDelay1 none"
+							alt="main_pfp.jpeg" data-appear-anim-style="fadeIn" />
+						<div>
+							<div id="particles-js" class="">
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-9">
+						<h1 class="text-center margin-clear header tragrad text-lg-left animated puffIn none animSpeed2 float-lg-none "
+							data-appear-anim-style="puffIn">
+							vapronva
+						</h1>
+						<h3 class="float-none text-center hero-subheader text-lg-left animated fadeIn none animDelay08 margin-clear tc-white"
+							data-appear-anim-style="fadeIn">
+							Welp, it&rsquo;s just a blank website!
+						</h3>
+						<a href="./" class="btn wirebutton wire-btn-white btn-sm object-hidden">
+							My Projects
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script src="{{url_for('static',filename='js/jquery-3.5.1.js')}}"></script>
+	<script src="{{url_for('static',filename='js/bootstrap.bundle.js')}}"></script>
+	<script src="{{url_for('static',filename='js/main.js')}}"></script>
+	<script src="{{url_for('static',filename='js/particles.min.js')}}"></script>
+	<script src="{{url_for('static',filename='js/particles-setup.js')}}"></script>
+
+
+</body>
+
+</html>
