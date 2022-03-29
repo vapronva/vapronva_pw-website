@@ -6,4 +6,4 @@ COPY . .
 
 RUN pip3 install Flask==2.1.0
 
-CMD ["python3", "./run.py"]
+CMD ["python3", "run.py"]

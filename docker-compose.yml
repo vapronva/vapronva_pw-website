@@ -1,0 +1,8 @@
+version: "3"
+
+services:
+  vapronvapwwebsite:
+    image: vapronvapwwebsiteflask:${IMAGE_VERSION}
+    container_name: "web-vapronvapw"
+    ports:
+      - "6026:8000"
