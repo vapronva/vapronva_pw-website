@@ -1,0 +1,17 @@
+depends_on:
+  - "test"
+  - "build"
+
+pipeline:
+  image: devforth/drone-builder
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    commands:
+      - docker-compose -f 'docker-compose.yml' --project-name 'w-vapronvapw' down
+      - docker-compose -f 'docker-compose.yml' --project-name 'w-vapronvapw' up -d
+    when:
+      branch: main
+      event: [push]
+      path:
+        - "vapronvapw/**"
+        - "**/*.html"

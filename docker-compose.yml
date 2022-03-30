@@ -2,7 +2,13 @@ version: "3"
 
 services:
   vapronvapwwebsite:
-    image: vapronvapwwebsiteflask:${IMAGE_VERSION}
+    image: registry.vapronva.pw/websites/vapronva_pw-website:latest
     container_name: "web-vapronvapw"
     ports:
-      - "6026:8000"
+      - 6026:8000
+    networks:
+      - "w-vapronvapw-network"
+
+networks:
+  w-vapronvapw-network:
+    external: true
