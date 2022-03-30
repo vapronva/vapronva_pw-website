@@ -21,3 +21,4 @@ pipeline:
         - "vapronvapw/**"
         - ".woodpecker/*.yml"
         - "**/Dockerfile"
+        - "**/docker-compose.yml"

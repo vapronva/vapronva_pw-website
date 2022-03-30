@@ -13,5 +13,7 @@ pipeline:
       branch: main
       event: [push]
       path:
-        - "vapronvapw/**"
         - "**/*.html"
+        - ".woodpecker/*.yml"
+        - "**/Dockerfile"
+        - "**/docker-compose.yml"
