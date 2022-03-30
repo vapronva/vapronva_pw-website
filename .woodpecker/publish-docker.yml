@@ -11,9 +11,7 @@ pipeline:
       - "DOCKER_PASSWORD"
       - "DOCKER_USERNAME"
     commands:
-      - "echo '${DOCKER_PASSWORD}' | docker login -u ${DOCKER_USERNAME} registry.vapronva.pw"
-      - "docker-compose -f 'docker-compose.yml' --project-name 'w-vapronvapw' down"
-      - "docker-compose -f 'docker-compose.yml' --project-name 'w-vapronvapw' up -d"
+      - "sh publish-dc.sh"
     when:
       branch: main
       event: [push]
