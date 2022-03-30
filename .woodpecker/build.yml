@@ -22,3 +22,4 @@ pipeline:
         - ".woodpecker/*.yml"
         - "**/Dockerfile"
         - "**/docker-compose.yml"
+        - "**/*.sh"
