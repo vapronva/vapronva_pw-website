@@ -11,7 +11,7 @@ pipeline:
       - "DOCKER_PASSWORD"
       - "DOCKER_USERNAME"
     commands:
-      - 'docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}" "registry.vapronva.pw"'
+      - "echo '${DOCKER_PASSWORD}' | docker login -u ${DOCKER_USERNAME} registry.vapronva.pw"
       - "docker-compose -f 'docker-compose.yml' --project-name 'w-vapronvapw' down"
       - "docker-compose -f 'docker-compose.yml' --project-name 'w-vapronvapw' up -d"
     when:
