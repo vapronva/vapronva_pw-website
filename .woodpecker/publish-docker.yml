@@ -3,7 +3,8 @@ depends_on:
   - "build"
 
 pipeline:
-  image: devforth/drone-builder
+  publish-docker-compose:
+    image: devforth/drone-builder
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     commands:
