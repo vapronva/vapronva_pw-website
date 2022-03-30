@@ -7,6 +7,5 @@ pipeline:
     when:
       path:
         - "**/*.html"
-        - "pipeline/schema/**"
         - ".woodpecker/*.yml"
         - "**/Dockerfile"
