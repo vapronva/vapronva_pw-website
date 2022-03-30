@@ -6,10 +6,9 @@ pipeline:
     secrets:
       - "DOCKER_PASSWORD"
       - "DOCKER_USERNAME"
-      - "DOCKER_REGISTRY_URL"
     image: plugins/docker
     settings:
-      registry: ${DOCKER_REGISTRY_URL}
+      registry: registry.vapronva.pw
       username: ${DOCKER_USERNAME}
       password: ${DOCKER_PASSWORD}
       dockerfile: ./Dockerfile
