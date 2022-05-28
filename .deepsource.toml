@@ -24,3 +24,7 @@ enabled = true
     "Dockerfile",
     "docker-compose.yml"
   ]
+
+test_patterns = [
+  "unit_tests/**"
+]

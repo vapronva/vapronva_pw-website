@@ -1,7 +1,8 @@
 import pytest
 from vapronvapw import app
 
-@pytest.fixture
-def client():
+
+@pytest.fixture(name="client")
+def app_client():
     client = app.test_client()
     yield client

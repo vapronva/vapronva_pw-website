@@ -1,4 +1,5 @@
-from unit_tests import client
+from unit_tests import app_client
+
 
 def test_page_index(client):
     page = client.get("/")
@@ -7,6 +8,7 @@ def test_page_index(client):
     assert "Hi, there! I&rsquo;m Vladimir. And this, hueh, just a website, I guess?" in html
     assert page.status_code == 200
 
+
 def test_page_about(client):
     page = client.get("/about/")
     html = page.data.decode()
@@ -14,15 +16,16 @@ def test_page_about(client):
     assert "Contact Information &amp; Social Media" in html
     assert page.status_code == 200
 
+
 def test_page_copyright(client):
     page = client.get("/copyright/")
-    html = page.data.decode()
     assert page.status_code == 200
+
 
 def test_page_privacy(client):
     page = client.get("/privacy/")
-    html = page.data.decode()
     assert page.status_code == 200
+
 
 def test_page_projects(client):
     page = client.get("/projects/")
@@ -31,12 +34,14 @@ def test_page_projects(client):
     assert "That&rsquo;s a Nice Argument" in html
     assert page.status_code == 200
 
+
 def test_page_shse(client):
     page = client.get("/shse/")
     html = page.data.decode()
     assert "Onboarding on My Self-Hosted Services" in html
     assert "Contact via Email" in html
     assert page.status_code == 200
+
 
 def test_page_wcid(client):
     page = client.get("/wcid/")
