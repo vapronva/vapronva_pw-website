@@ -6,6 +6,8 @@ enabled = true
 
   [analyzers.meta]
   runtime_version = "3.x.x"
+
+  [analyzers.meta]
   test_patterns = [
     "unit_tests/**"
   ]
