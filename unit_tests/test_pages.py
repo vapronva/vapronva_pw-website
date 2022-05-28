@@ -1,4 +1,4 @@
-from unit_tests import app_client
+from unit_tests import app_client # skipcq: PY-W2000
 
 
 def test_page_index(client):
