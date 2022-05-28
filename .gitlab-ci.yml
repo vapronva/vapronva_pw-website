@@ -1,0 +1,63 @@
+stages:
+- static-test
+- web-test
+- build
+- deploy
+
+
+sast:
+  stage: static-test
+
+include:
+- template: Security/SAST.gitlab-ci.yml
+- template: Security/SAST-IaC.latest.gitlab-ci.yml
+
+
+test-web:
+  stage: web-test
+  image: python:3.10-alpine
+  commands:
+    - pip3 install Flask==2.1.0 gunicorn==20.1.0 pytest==7.1.1
+    - python3 -m pytest
+
+
+build-web:
+  stage: build
+  services:
+  - docker:dind
+  before_script:
+  - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASSWORD" $REGISTRY
+  script:
+  - cd web/
+  - docker build --pull -t "$REGISTRY/websites/vapronva_pw-website" .
+  - docker push "$REGISTRY/websites/vapronva_pw-website"
+  rules:
+  - if: $CI_COMMIT_BRANCH == "main"
+    exists:
+    - Dockerfile
+    changes:
+    - vapronvapw/**/*
+    - vapronvapw/*
+    - Dockerfile
+    - .gitlab-ci.yml
+    - run.sh
+
+
+deploy-job:
+  stage: deploy
+  before_script:
+  - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASSWORD" $REGISTRY
+  script:
+  - docker-compose -f 'docker-compose.yml' --project-name 'w-vapronvapw' down
+  - docker-compose -f 'docker-compose.yml' --project-name 'w-vapronvapw' up -d
+  rules:
+  - if: $CI_COMMIT_BRANCH == "main"
+    exists:
+    - docker-compose.yml
+    changes:
+    - vapronvapw/**/*
+    - vapronvapw/*
+    - docker-compose.yml
+    - Dockerfile
+    - .gitlab-ci.yml
+    - run.sh

@@ -4,8 +4,9 @@ services:
   vapronvapwwebsite:
     image: registry.vapronva.pw/websites/vapronva_pw-website:latest
     container_name: "web-vapronvapw"
-    ports:
-      - 6026:8000
+    environment:
+      - VIRTUAL_HOST=vapronva.pw
+      - VIRTUAL_PORT=8000
     networks:
       - "w-vapronvapw-network"
 
