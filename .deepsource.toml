@@ -1,24 +1,6 @@
 version = 1
 
-[[analyzers]]
-name = "python"
-enabled = true
-
-  [analyzers.meta]
-  runtime_version = "3.x.x"
-
-  [analyzers.meta]
-  test_patterns = [
-    "unit_tests/**"
-  ]
-
-[[analyzers]]
-name = "secrets"
-enabled = true
-
-[[analyzers]]
-name = "javascript"
-enabled = true
+test_patterns = ["unit_tests/**,unit_tests/*"]
 
 [[analyzers]]
 name = "docker"
@@ -30,6 +12,17 @@ enabled = true
     "docker-compose.yml"
   ]
 
-test_patterns = [
-  "unit_tests/**"
-]
+[[analyzers]]
+name = "python"
+enabled = true
+
+  [analyzers.meta]
+  runtime_version = "3.x.x"
+
+[[analyzers]]
+name = "secrets"
+enabled = true
+
+[[analyzers]]
+name = "javascript"
+enabled = true
