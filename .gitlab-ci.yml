@@ -28,7 +28,6 @@ build-web:
   before_script:
   - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASSWORD" $REGISTRY
   script:
-  - cd web/
   - docker build --pull -t "$REGISTRY/websites/vapronva_pw-website" .
   - docker push "$REGISTRY/websites/vapronva_pw-website"
   rules:
