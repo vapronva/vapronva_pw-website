@@ -4,7 +4,7 @@ import os
 
 app = Flask(
     "vapronva_pw-website",
-    template_folder="src/",
+    template_folder="templates/",
     static_folder="assets/",
     static_url_path="/_/assets",
 )
