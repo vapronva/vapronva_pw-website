@@ -1,7 +1,5 @@
 version = 1
 
-test_patterns = ["unit_tests/**,unit_tests/*"]
-
 [[analyzers]]
 name = "docker"
 enabled = true
