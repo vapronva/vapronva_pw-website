@@ -1,0 +1,21 @@
+# wewewo-vprwweb-vapronva
+version: "3"
+
+services:
+  app:
+    image: registry.vapronva.pw/vapronva/vapronva_pw-website/vprw-web:latest
+    container_name: "website-vprw-vapronva-full"
+    restart: unless-stopped
+    environment:
+      VIRTUAL_HOST: vapronva.pw
+      VIRTUAL_PORT: 8000
+
+networks:
+  default:
+    driver: bridge
+    name: "wewewo-vprwweb-vapronva-network"
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.65.0/24
+          gateway: 172.16.65.1

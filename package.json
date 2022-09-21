@@ -1,6 +1,5 @@
 {
   "devDependencies": {
-    "tailwindcss": "^3.1.8",
-    "uglifycss": "^0.0.29"
+    "tailwindcss": "^3.1.8"
   }
 }
