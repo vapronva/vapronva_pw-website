@@ -1,0 +1,45 @@
+stages:
+  - test
+  - lint
+  - build
+  - deploy
+
+sast:
+  stage: test
+include:
+- template: Security/SAST.gitlab-ci.yml
+- template: Security/SAST-IaC.latest.gitlab-ci.yml
+
+tailwind-gen:
+  stage: lint
+  image: node:18-alpine
+  before_script:
+    - npm install
+  script:
+    - npx tailwindcss -i "./src/input.css" -o "./assets/styles/$(cat VERSION)/style.css"
+    - uglifycss --output "./assets/styles/$(cat VERSION)/style.min.css" "./assets/styles/$(cat VERSION)/style.css"
+  artifacts:
+    paths:
+      - assets/styles/
+  rules:
+  - exists:
+    - tailwind.config.js
+    - src/input.css
+
+docker-build:
+  stage: build
+  image: docker:20-git
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE/vprw-web:latest -f Dockerfile .
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker image push --all-tags $CI_REGISTRY_IMAGE/vprw-web
+  rules:
+  - if: $CI_COMMIT_BRANCH == "main"
+    exists:
+    - Dockerfile
+    changes:
+    - "*.py"
+    - "**/*.html"
+    - "**/*.css"
+    - Dockerfile
+    - .gitlab-ci.yml
