@@ -6,7 +6,7 @@ RUN pip3 install --no-cache-dir gunicorn==20.1.0 Flask==2.2.2
 
 COPY ./assets ./assets
 COPY ./main.py .
-COPY ./src/*.html ./templates
+COPY ./templates ./templates
 COPY ./VERSION ./VERSION
 COPY ./RUN.sh ./RUN.sh
 

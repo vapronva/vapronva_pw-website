@@ -32,6 +32,7 @@ docker-build:
   stage: build
   image: docker:20-git
   script:
+    - mkdir templates && cp src/*.html templates/
     - docker build -t $CI_REGISTRY_IMAGE/vprw-web:latest -f Dockerfile .
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker image push --all-tags $CI_REGISTRY_IMAGE/vprw-web
