@@ -16,7 +16,7 @@ tailwind-gen:
   image: node:18-alpine
   before_script:
     - npm install
-    - npm install -g uglifycss:0.0.29
+    - npm install -g uglifycss
   script:
     - npx tailwindcss -i "./src/input.css" -o "./assets/styles/$(cat VERSION)/style.css"
     - uglifycss --output "./assets/styles/$(cat VERSION)/style.min.css" "./assets/styles/$(cat VERSION)/style.css"
