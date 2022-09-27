@@ -24,7 +24,7 @@ tailwind-gen:
     name: "vprw-website-vapronva_pw-tailwind_styles-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA"
     expire_in: 1 month
     paths:
-      - assets/styles/$(cat VERSION)/style.css
+      # - assets/styles/$(cat VERSION)/style.css
       - assets/styles/$(cat VERSION)/style.min.css
   rules:
   - exists:
