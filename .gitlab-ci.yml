@@ -56,7 +56,6 @@ deploy-web:
   environment:
     name: production/website
     url: https://vapronva.pw
-    on_stop: stop-vprwweb-production
   script:
     - docker-compose -f 'docker-compose.yml' --project-name 'wewewo-vprwweb-vapronva' down
     - docker-compose -f 'docker-compose.yml' --project-name 'wewewo-vprwweb-vapronva' up -d
@@ -73,14 +72,3 @@ deploy-web:
     - Dockerfile
     - docker-compose.yml
     - .gitlab-ci.yml
-
-stop-vprwweb-production:
-  stage: stop
-  image: docker:20-git
-  script:
-    - docker-compose -f 'docker-compose.yml' --project-name 'wewewo-vprwweb-vapronva' down
-  when: manual
-  environment:
-    name: production/website
-    url: https://vapronva.pw
-    action: stop
