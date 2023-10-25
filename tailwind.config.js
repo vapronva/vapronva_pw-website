@@ -12,6 +12,8 @@ module.exports = {
         },
       },
       fontSize: {
+        xa: ".9rem",
+        xe: ".75rem",
         xn: ".65rem",
         xd: ".55rem",
         xm: ".45rem",
@@ -28,12 +30,14 @@ module.exports = {
         mccin_4: "#2e3d59",
         pfp_pp: "#81d97e",
         ba_b16c_1: "#737373",
+        el_82f7_4: "#bfcdd9",
         el_82f7_7: "#595659",
         el_82f7_8: "#5176a6",
         el_82f7_9: "#595959",
         omsk_drone_fullcentre_summer_twon: "#a7c6d9",
         sh_a792_3: "#445925",
         alt_vil_excur_forest_river_twtw_1: "#8c8c8c",
+        alt_vil_fireworks_newy_3: "#D94343",
       },
       dropShadow: {
         glow_lg: [
@@ -55,6 +59,16 @@ module.exports = {
           "0 0px 4px rgba(255, 255,255, 0.45)",
           "0 0px 1px rgba(255, 255,255, 0.5)",
         ],
+        glow_sm_3: [
+          "0 0px 20px rgba(255,255, 255, 0.1)",
+          "0 0px 4px rgba(255, 255,255, 0.15)",
+          "0 0px 1px rgba(255, 255,255, 0.2)",
+        ],
+        glow_sm_4: [
+          "0 0px 20px rgba(255,255, 255, 0.6)",
+          "0 0px 4px rgba(255, 255,255, 0.3)",
+          "0 0px 1px rgba(255, 255,255, 0.4)",
+        ],
         pfp_pp: [
           "0 0px 4px rgba(32, 144, 47, 0.45)",
           "0 0px 1px rgba(32, 144, 47, 0.175)",
@@ -70,6 +84,10 @@ module.exports = {
         3: "3 3 0%",
         4: "4 4 0%",
         5: "5 5 0%",
+      },
+      padding: {
+        "-1": "-0.25rem",
+        "-2": "-0.5rem",
       },
       lineHeight: {
         1: "0.25rem",
