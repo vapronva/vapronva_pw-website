@@ -16,7 +16,6 @@ tailwind-gen:
   image: docker.io/library/node:20-alpine
   before_script:
     - npm install -g tailwindcss
-    - npm install -g minify
   script:
     - npx tailwindcss -i "./src/input.css" -o "./assets/styles/$(cat VERSION)/style.css"
   artifacts:
@@ -32,6 +31,9 @@ tailwind-gen:
 site-minify-build:
   stage: minify
   image: docker.io/library/node:20-alpine
+  needs:
+    - job: tailwind-gen
+      artifacts: true
   before_script:
     - npm install -g minify
   script:
