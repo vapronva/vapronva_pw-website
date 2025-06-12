@@ -1,7 +1,26 @@
-FROM docker.io/library/caddy:2-alpine
+FROM docker-registry.selectel.ru/library/node:24-alpine AS builder
 
-COPY ./Caddyfile /etc/caddy/Caddyfile
+WORKDIR /usr/src/app
 
-COPY ./site /srv
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
-EXPOSE 80
+RUN npm install --global pnpm@10 && \
+    pnpm install
+
+COPY . .
+
+RUN pnpm run build
+
+FROM docker-registry.selectel.ru/library/node:24-alpine
+
+WORKDIR /usr/src/app
+
+ENV NODE_ENV=production
+
+COPY --from=builder /usr/src/app/.next/standalone ./
+COPY --from=builder /usr/src/app/.next/static ./.next/static
+COPY --from=builder /usr/src/app/public ./public
+
+EXPOSE 3000
+
+ENTRYPOINT ["node", "server.js"]

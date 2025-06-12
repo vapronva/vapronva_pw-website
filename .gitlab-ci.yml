@@ -1,76 +1,46 @@
 stages:
   - test
-  - lint
-  - minify
   - build
+  - post-test
 
-sast:
-  stage: test
 include:
-  - template: Security/SAST.gitlab-ci.yml
-  - template: Security/SAST-IaC.latest.gitlab-ci.yml
-  - template: Security/Secret-Detection.gitlab-ci.yml
+  - component: gl.vprw.ru/ci/sast/sast@1
+  - component: gl.vprw.ru/ci/sast/iac@1
+  - component: gl.vprw.ru/ci/sast/bearer@1
+  - component: gl.vprw.ru/ci/secret-detection/sd@1
+  - component: gl.vprw.ru/ci/dependency-scanning/ds@1
+  - component: gl.vprw.ru/ci/docker/build-buildah@3
+    inputs:
+      job_name: build container image
+      job_name_manifest: push manifest
+      ci_image_name: web
+      ci_image_tags: latest
+      dockerfile_path: Dockerfile
+  - component: gl.vprw.ru/ci/container-scanning/cs@1
+    inputs:
+      job_name: container scanning (latest)
+      default_branch_image: $CI_REGISTRY_IMAGE/web:latest
+      application_repository: $CI_REGISTRY_IMAGE/web
+      application_tag: latest
 
-tailwind-gen:
-  stage: lint
-  image: docker.io/library/node:20-alpine
-  before_script:
-    - npm install -g tailwindcss
-  script:
-    - npx tailwindcss -i "./src/input.css" -o "./assets/styles/$(cat VERSION)/style.css"
-  artifacts:
-    name: website-vapronva_pw-tailwind_styles-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA
-    expire_in: 1 month
-    paths:
-      - assets/styles
-  rules:
-    - exists:
-        - tailwind.config.js
-        - src/input.css
-
-site-minify-build:
-  stage: minify
-  image: docker.io/library/node:20-alpine
-  needs:
-    - job: tailwind-gen
-      artifacts: true
-  before_script:
-    - npm install -g minify
-  script:
-    - minify "./assets/styles/$(cat VERSION)/style.css" > "./assets/styles/$(cat VERSION)/style.min.css"
-    - for FILNM in $(find ./assets -name "*.css" -not -name "*.min.css"); do minify "$FILNM" > "${FILNM%.*}.min.css"; done
-    - mkdir -p ./site
-    - cp -r ./assets ./site
-    - for FILNM in ./src/*.html; do minify "$FILNM" > "./site/$(basename $FILNM)"; done
-  artifacts:
-    name: website-vapronva_pw-site-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA
-    expire_in: 1 month
-    paths:
-      - site
-
-docker-build:
-  stage: build
-  image: docker.io/library/docker:24-git
-  needs:
-    - job: site-minify-build
-      artifacts: true
-  before_script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-  script:
-    - |
-      echo ':80 {
-      root * /srv
-      file_server
-      }' > Caddyfile
-    - docker build -t $CI_REGISTRY_IMAGE/web:latest -t $CI_REGISTRY_IMAGE/web:$(cat VERSION) -f Dockerfile .
-    - docker image push --all-tags $CI_REGISTRY_IMAGE/web
+.build rules for frontend: &build-rules-frontend
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-      exists:
-        - Dockerfile
-      changes:
-        - src/**/*
-        - assets/**/*
-        - tailwind.config.js
-        - VERSION
-        - .gitlab-ci.yml
+
+lint + check:
+  stage: test
+  <<: *build-rules-frontend
+  image: docker-registry.selectel.ru/library/node:24-alpine
+  script:
+    - npm install --global pnpm@10
+    - pnpm install
+    - pnpm run check
+
+build container image:
+  <<: *build-rules-frontend
+
+push manifest:
+  <<: *build-rules-frontend
+
+container scanning (latest):
+  <<: *build-rules-frontend

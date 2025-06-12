@@ -1,0 +1,47 @@
+{
+  "name": "vapronvapw-web",
+  "version": "3.1.2",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "next build",
+    "check": "next lint && tsc --noEmit",
+    "dev": "next dev --turbo",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "preview": "next build && next start",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "format:write": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx,json,cjs,mjs,yml,yaml}\" --cache",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx,json,cjs,mjs,yml,yaml}\" --cache"
+  },
+  "dependencies": {
+    "@icons-pack/react-simple-icons": "^13.1.0",
+    "@sentry/nextjs": "^9.28.1",
+    "lucide-react": "^0.514.0",
+    "next": "^15.3.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "simple-icons": "^15.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@next/eslint-plugin-next": "^15.3.3",
+    "@tailwindcss/postcss": "^4.1.10",
+    "@types/eslint": "^9.6.1",
+    "@types/node": "^24.0.1",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@typescript-eslint/eslint-plugin": "^8.34.0",
+    "@typescript-eslint/parser": "^8.34.0",
+    "eslint": "^9.28.0",
+    "eslint-config-next": "^15.3.3",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "postcss": "^8.5.5",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.12",
+    "tailwindcss": "^4.1.10",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.34.0"
+  }
+}
