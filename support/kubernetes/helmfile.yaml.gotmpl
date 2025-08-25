@@ -1,0 +1,25 @@
+---
+missingFileHandler: Error
+
+helmDefaults:
+  wait: true
+  timeout: 600
+  force: false
+  createNamespace: true
+  atomic: true
+  historyMax: 10
+
+repositories:
+  - name: cmld
+    url: https://gl.vprw.ru/api/v4/projects/149/packages/helm/stable
+
+releases:
+  - name: vapronvapw-frontend
+    namespace: vapronvapw-vprw
+    chart: cmld/app-release
+    version: 2.4.0
+    values:
+      - values.yaml
+    set:
+      - name: deployment.containers[0].image.tag
+        value: {{ requiredEnv "CI_COMMIT_SHA" }}

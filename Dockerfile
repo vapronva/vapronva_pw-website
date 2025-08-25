@@ -9,7 +9,11 @@ RUN npm install --global pnpm@10 && \
 
 COPY . .
 
-RUN pnpm run build
+RUN --mount=type=secret,id=NODE_ENV \
+    --mount=type=secret,id=SENTRY_AUTH_TOKEN \
+    export NODE_ENV="$(cat /run/secrets/NODE_ENV)" \
+    SENTRY_AUTH_TOKEN="$(cat /run/secrets/SENTRY_AUTH_TOKEN)" && \
+    pnpm run build
 
 FROM docker-registry.selectel.ru/library/node:24-alpine
 

@@ -1,7 +1,9 @@
+---
 stages:
   - test
   - build
   - post-test
+  - deploy
 
 include:
   - component: gl.vprw.ru/ci/sast/sast@1
@@ -14,15 +16,22 @@ include:
     inputs:
       job_name: build container image
       job_name_manifest: push manifest
-      ci_image_name: web
-      ci_image_tags: latest
+      ci_image_name: frontend
+      ci_image_tags: latest,$CI_COMMIT_SHA
       dockerfile_path: Dockerfile
+      build_args: --secret id=NODE_ENV,type=env --secret id=SENTRY_AUTH_TOKEN,type=env
   - component: gl.vprw.ru/ci/container-scanning/cs@1
     inputs:
       job_name: container scanning (latest)
-      default_branch_image: $CI_REGISTRY_IMAGE/web:latest
-      application_repository: $CI_REGISTRY_IMAGE/web
+      default_branch_image: $CI_REGISTRY_IMAGE/frontend:latest
+      application_repository: $CI_REGISTRY_IMAGE/frontend
       application_tag: latest
+  - component: gl.vprw.ru/ci/helmfile/deploy@1
+    inputs:
+      job_name: helmfile deploy
+      working_dir: support/kubernetes
+      helmfile_path: support/kubernetes/helmfile.yaml.gotmpl
+      deploy_mode: sync
 
 .build rules for frontend: &build-rules-frontend
   rules:
@@ -45,3 +54,9 @@ push manifest:
 
 container scanning (latest):
   <<: *build-rules-frontend
+
+helmfile deploy:
+  <<: *build-rules-frontend
+  environment:
+    name: production
+    url: https://vapronva.pw

@@ -1,0 +1,35 @@
+---
+nameOverride: frontend-vapronvapw
+fullnameOverride: frontend-vapronvapw-vprw
+
+deployment:
+  containers:
+    - name: frontend
+      image:
+        registry: rg.gl.vprw.ru
+        repository: vapronva/vapronva-pw/frontend
+        tag: latest
+        pullPolicy: Always
+      ports:
+        - name: http
+          containerPort: 3000
+          protocol: TCP
+  affinity:
+    nodeAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 1
+          preference:
+            matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                  - converted-conduit
+
+services:
+  - name: frontend-vapronvapw
+    type: ClusterIP
+    ports:
+      - name: http
+        port: 3000
+        targetPort: http
+        protocol: TCP
