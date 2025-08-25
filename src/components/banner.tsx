@@ -10,10 +10,6 @@ export default function Banner() {
           >
             vapronva.ru
           </a>{" "}
-          — feel free to check it out{" "}
-          <span className="font-thin">
-            (unfortunately, I haven&apos;t built it yet)!
-          </span>{" "}
           Also, I self-host tons of stuff at{" "}
           <a
             className="drop-shadow-glow_lg hover:drop-shadow-glow_lg_2 transition duration-200 ease-in-out"
@@ -21,14 +17,14 @@ export default function Banner() {
           >
             docker.house
           </a>{" "}
-          and{" "}
+          and many others with my{" "}
           <a
             className="drop-shadow-glow_lg hover:drop-shadow-glow_lg_2 transition duration-200 ease-in-out"
             href="https://cmld.network"
           >
             cmld.network
           </a>
-          . And yes, I have 30+ domains.
+          . And yes, I have 60+ domains.
         </p>
       </div>
     </div>

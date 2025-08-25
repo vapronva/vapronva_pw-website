@@ -17,7 +17,7 @@ export default function InfoCard({
 }: InfoCardProps) {
   return (
     <div
-      className={`rounded-3xl bg-gray-800/70 bg-cover bg-local bg-center bg-no-repeat px-5 py-5 shadow-2xl sm:px-7 sm:py-7 ${shadowColor} ${className}`}
+      className={`rounded-3xl bg-gray-800/70 bg-cover bg-local bg-center bg-no-repeat px-5 py-5 shadow-2xl sm:px-6 sm:py-6 ${shadowColor} ${className}`}
       style={{
         backgroundImage: `linear-gradient(rgba(37, 37, 39, 0.95), rgba(37, 37, 39, 0.9)), url(${backgroundImage})`,
       }}

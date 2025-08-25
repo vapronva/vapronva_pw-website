@@ -55,7 +55,7 @@ export default function AdditionalInfo() {
             </a>
             . I did &quot;AI&quot; before it was cool.
           </p>
-          <div className="mt-0.5 text-sm leading-none tracking-tight">
+          <div className="mt-0.5 text-sm leading-none font-light tracking-tight">
             <p>
               Favourite song quotes:{" "}
               <a

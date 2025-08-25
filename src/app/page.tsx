@@ -26,11 +26,11 @@ export default function Home() {
         <AboutSection />
         <div className="mt-3 max-w-5xl sm:mx-auto sm:mt-6">
           <div className="flex w-full flex-col gap-3 sm:flex-row sm:gap-6">
-            <div className="w-full sm:w-1/3">
+            <div className="w-full sm:w-1/2">
               <LocationEducation />
-            </div>
-            <div className="w-full sm:w-2/3">
               <Languages />
+            </div>
+            <div className="w-full sm:w-1/2">
               <ProgrammingLanguages />
             </div>
           </div>

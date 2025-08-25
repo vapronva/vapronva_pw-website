@@ -242,10 +242,9 @@ export default function ProjectsSection() {
       <p className="text-xa leading-tighter mt-1 text-white sm:mt-2">
         <i>
           And much more! I have numerous other smaller projects that may not
-          have garnered the same attention, but have contributed significantly
-          to my growth and learning as a developer nevertheless. For a
-          comprehensive view of my projects, including many others not listed
-          here, I invite you to explore{" "}
+          have garnered the same attention. For a comprehensive view of my
+          projects, including many others not listed here, I invite you to
+          explore{" "}
           <a
             href="https://gl.vprw.ru/vapronva"
             rel="noreferrer noopener"
