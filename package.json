@@ -1,6 +1,6 @@
 {
   "name": "vapronvapw-web",
-  "version": "3.1.5",
+  "version": "3.1.6",
   "private": true,
   "type": "module",
   "scripts": {
@@ -18,30 +18,30 @@
   "dependencies": {
     "@icons-pack/react-simple-icons": "^13.7.0",
     "@sentry/nextjs": "^10.5.0",
-    "lucide-react": "^0.539.0",
-    "next": "^15.4.6",
+    "lucide-react": "^0.541.0",
+    "next": "^15.5.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "simple-icons": "^15.11.0"
+    "simple-icons": "^15.12.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
-    "@next/eslint-plugin-next": "^15.4.6",
+    "@next/eslint-plugin-next": "^15.5.0",
     "@tailwindcss/postcss": "^4.1.12",
     "@types/eslint": "^9.6.1",
     "@types/node": "^24.3.0",
-    "@types/react": "^19.1.10",
+    "@types/react": "^19.1.11",
     "@types/react-dom": "^19.1.7",
-    "@typescript-eslint/eslint-plugin": "^8.39.1",
-    "@typescript-eslint/parser": "^8.39.1",
-    "eslint": "^9.33.0",
-    "eslint-config-next": "^15.4.6",
+    "@typescript-eslint/eslint-plugin": "^8.40.0",
+    "@typescript-eslint/parser": "^8.40.0",
+    "eslint": "^9.34.0",
+    "eslint-config-next": "^15.5.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "postcss": "^8.5.6",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4.1.12",
     "typescript": "^5.9.2",
-    "typescript-eslint": "^8.39.1"
+    "typescript-eslint": "^8.40.0"
   }
 }
