@@ -41,7 +41,7 @@ export default function ProjectItem({
   };
   return (
     <div className="flex flex-col pt-1 pb-1">
-      <div className="-mt-0.5 flex flex-row items-center">
+      <div className="-mt-0.5 flex flex-row flex-wrap items-center">
         {isRedacted ? (
           <div className="relative">
             <h4 className="leading-tighter text-base font-medium text-white">
@@ -55,7 +55,7 @@ export default function ProjectItem({
               {title}
             </h4>
             {links.length > 0 && (
-              <div className="-mt-0.5 ml-2">
+              <div className="-mt-0.5 ml-2 flex flex-row flex-wrap items-center gap-x-1 gap-y-1">
                 {links.map((link, index) => (
                   <a
                     key={index}
@@ -65,7 +65,7 @@ export default function ProjectItem({
                   >
                     {React.createElement(link.icon, {
                       className:
-                        "text-blue-100/80 hover:text-blue-300/80 hover:drop-shadow-glow_sm_2 transition duration-200 ease-in-out w-4 h-4 mr-1 inline-block",
+                        "text-blue-100/80 hover:text-blue-300/80 hover:drop-shadow-glow_sm_2 transition duration-200 ease-in-out h-4 w-4 inline-block",
                       "aria-hidden": "true",
                     })}
                   </a>

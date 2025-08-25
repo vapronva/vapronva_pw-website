@@ -33,6 +33,22 @@ export default function AboutSection() {
       </h3>
       <div className="flex">
         <p className="text-base leading-tight text-white">
+          {supportsHDR ? (
+            <video
+              muted
+              autoPlay
+              playsInline
+              className="float-right mb-1 ml-3 h-20 w-20 rounded-full sm:h-24 sm:w-24"
+            >
+              <source src="/videos/pfp-2022-hdred.mp4" type="video/mp4" />
+            </video>
+          ) : (
+            <img
+              src="/images/pfp/new-2022-hkc-out.jpeg"
+              alt="vapronva's profile picture (2022)"
+              className="float-right mb-1 ml-3 h-20 w-20 rounded-full sm:h-24 sm:w-24"
+            />
+          )}
           My name is <span className="font-medium">Vladimir</span>{" "}
           <span className="font-extralight">
             (online, you may know me by &quot;
@@ -49,22 +65,6 @@ export default function AboutSection() {
           fan. ML and NLP enthusiast. Self-hosting maniac. VR fanboy. Previously
           an AS.
         </p>
-        {supportsHDR ? (
-          <video
-            muted
-            autoPlay
-            playsInline
-            className="mx-auto inline-flex h-25 w-25 rounded-full"
-          >
-            <source src="/videos/pfp-2022-hdred.mp4" type="video/mp4" />
-          </video>
-        ) : (
-          <img
-            src="/images/pfp/new-2022-hkc-out.jpeg"
-            alt="vapronva's profile picture (2022)"
-            className="mx-auto inline-flex h-25 w-25 rounded-full"
-          />
-        )}
       </div>
     </div>
   );

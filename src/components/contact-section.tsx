@@ -97,7 +97,7 @@ export default function ContactSection() {
       }}
       id="contact"
     >
-      <div className="grid grid-cols-6 place-items-center gap-x-12 gap-y-2 sm:grid-cols-12 sm:gap-y-4">
+      <div className="grid grid-cols-4 place-items-center gap-x-12 gap-y-2 sm:grid-cols-12 sm:gap-y-6">
         {socialLinks.map((link, index) => (
           <SocialLink
             key={index}

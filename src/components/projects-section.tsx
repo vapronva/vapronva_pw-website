@@ -215,8 +215,8 @@ export default function ProjectsSection() {
       }}
     >
       <h3 className="mb-1 text-xs font-semibold text-white">Projects</h3>
-      <div className="flex gap-3 sm:gap-4">
-        <div className="w-1/2 divide-y divide-gray-500/40">
+      <div className="flex flex-col gap-2 sm:flex-row sm:gap-4">
+        <div className="w-full divide-y divide-gray-500/40 sm:w-1/2">
           {leftProjects.map((project, index) => (
             <ProjectItem
               key={index}
@@ -227,7 +227,7 @@ export default function ProjectsSection() {
             />
           ))}
         </div>
-        <div className="w-1/2 divide-y divide-gray-500/40">
+        <div className="w-full divide-y divide-gray-500/40 sm:w-1/2">
           {rightProjects.map((project, index) => (
             <ProjectItem
               key={index}
