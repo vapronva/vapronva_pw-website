@@ -205,14 +205,31 @@ const rightProjects: Array<{
   },
 ];
 
-export default function ProjectsSection() {
+interface ProjectsSectionProps {
+  glass?: boolean;
+}
+
+export default function ProjectsSection({
+  glass = false,
+}: ProjectsSectionProps) {
   return (
     <div
-      className="shadow-el_82f7.4/10 mt-3 max-w-5xl rounded-3xl bg-cover bg-local bg-center bg-no-repeat px-5 py-5 shadow-2xl ring-1 ring-gray-900/5 sm:mx-auto sm:mt-6 sm:px-7 sm:py-7"
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(37, 37, 39, 0.95), rgba(37, 37, 39, 0.9)), url(/images/idminebg/el-82f7-4.jpeg)",
-      }}
+      className={`shadow-el_82f7.4/10 mt-3 max-w-5xl rounded-3xl px-5 py-5 shadow-2xl transition-all duration-500 ease-out sm:mx-auto sm:mt-6 sm:px-7 sm:py-7 ${
+        glass
+          ? "border border-white/10 bg-white/[0.03] ring-1 ring-white/10 backdrop-blur-xl"
+          : "bg-cover bg-local bg-center bg-no-repeat ring-1 ring-gray-900/5"
+      }`}
+      style={
+        glass
+          ? {
+              backgroundImage:
+                "linear-gradient(rgba(13, 14, 21, 0.4), rgba(13, 14, 21, 0.4))",
+            }
+          : {
+              backgroundImage:
+                "linear-gradient(rgba(37, 37, 39, 0.95), rgba(37, 37, 39, 0.9)), url(/images/idminebg/el-82f7-4.jpeg)",
+            }
+      }
     >
       <h3 className="mb-1 text-xs font-semibold text-white">Projects</h3>
       <div className="flex flex-col gap-2 sm:flex-row sm:gap-4">

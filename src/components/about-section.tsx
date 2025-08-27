@@ -15,24 +15,43 @@ function doesTheDisplaySupportHDR(): boolean {
   return false;
 }
 
-export default function AboutSection() {
+interface AboutSectionProps {
+  glass?: boolean;
+}
+
+export default function AboutSection({ glass = false }: AboutSectionProps) {
   const [supportsHDR, setSupportsHDR] = useState(false);
   useEffect(() => {
     setSupportsHDR(doesTheDisplaySupportHDR());
   }, []);
   return (
     <div
-      className="shadow-ba_b16c_1/10 max-w-5xl rounded-3xl bg-cover bg-local bg-center bg-no-repeat px-5 py-5 shadow-2xl ring-1 ring-gray-900/5 sm:mx-auto sm:px-7 sm:py-7"
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(37, 37, 39, 0.90), rgba(37, 37, 39, 0.90)), url(/images/idminebg/ba-b16c-1.jpeg)",
-      }}
+      className={`shadow-ba_b16c_1/10 max-w-5xl rounded-3xl px-5 py-5 shadow-2xl transition-all duration-500 ease-out sm:mx-auto sm:px-7 sm:py-7 ${
+        glass
+          ? "border border-white/10 bg-white/[0.03] ring-1 ring-white/10 backdrop-blur-xl"
+          : "bg-cover bg-local bg-center bg-no-repeat ring-1 ring-gray-900/5"
+      }`}
+      style={
+        glass
+          ? {
+              backgroundImage:
+                "linear-gradient(rgba(13, 14, 21, 0.4), rgba(13, 14, 21, 0.4))",
+            }
+          : {
+              backgroundImage:
+                "linear-gradient(rgba(37, 37, 39, 0.90), rgba(37, 37, 39, 0.90)), url(/images/idminebg/ba-b16c-1.jpeg)",
+            }
+      }
     >
-      <h3 className="mb-1 text-xs font-semibold text-white">
+      <h3
+        className={`mb-1 text-xs font-semibold ${glass ? "text-white/95" : "text-white"}`}
+      >
         Greetings! I am…
       </h3>
       <div className="flex">
-        <p className="text-base leading-tight text-white">
+        <p
+          className={`text-base leading-tight ${glass ? "text-white/95" : "text-white"}`}
+        >
           {supportsHDR ? (
             <video
               muted

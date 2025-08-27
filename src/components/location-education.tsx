@@ -1,11 +1,18 @@
 import InfoCard from "~/components/info-card";
 
-export default function LocationEducation() {
+interface LocationEducationProps {
+  glass?: boolean;
+}
+
+export default function LocationEducation({
+  glass = false,
+}: LocationEducationProps) {
   return (
     <InfoCard
       title="Place / Studies / Work"
       backgroundImage="/images/idminebg/od-4ba7-12.jpeg"
       shadowColor="shadow-od_4ba7.12/10"
+      glass={glass}
       content={
         <>
           <p>

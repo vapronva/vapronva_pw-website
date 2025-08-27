@@ -87,14 +87,29 @@ const socialLinks: Array<{
   },
 ];
 
-export default function ContactSection() {
+interface ContactSectionProps {
+  glass?: boolean;
+}
+
+export default function ContactSection({ glass = false }: ContactSectionProps) {
   return (
     <div
-      className="shadow-mc_2f7c_4/10 mt-3 max-w-5xl rounded-3xl bg-cover bg-local bg-center bg-no-repeat px-5 py-5 shadow-2xl ring-1 ring-gray-900/5 sm:mx-auto sm:mt-6 sm:px-7 sm:py-7"
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(37, 37, 39, 0.95), rgba(37, 37, 39, 0.9)), url(/images/idminebg/mc-2f7c-4.jpeg)",
-      }}
+      className={`shadow-mc_2f7c_4/10 mt-3 max-w-5xl rounded-3xl px-5 py-5 shadow-2xl transition-all duration-500 ease-out sm:mx-auto sm:mt-6 sm:px-7 sm:py-7 ${
+        glass
+          ? "border border-white/10 bg-white/[0.03] ring-1 ring-white/10 backdrop-blur-xl"
+          : "bg-cover bg-local bg-center bg-no-repeat ring-1 ring-gray-900/5"
+      }`}
+      style={
+        glass
+          ? {
+              backgroundImage:
+                "linear-gradient(rgba(13, 14, 21, 0.4), rgba(13, 14, 21, 0.4))",
+            }
+          : {
+              backgroundImage:
+                "linear-gradient(rgba(37, 37, 39, 0.95), rgba(37, 37, 39, 0.9)), url(/images/idminebg/mc-2f7c-4.jpeg)",
+            }
+      }
       id="contact"
     >
       <div className="grid grid-cols-4 place-items-center gap-x-12 gap-y-2 sm:grid-cols-12 sm:gap-y-6">

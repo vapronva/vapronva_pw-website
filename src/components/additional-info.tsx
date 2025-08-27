@@ -1,11 +1,16 @@
 import InfoCard from "~/components/info-card";
 
-export default function AdditionalInfo() {
+interface AdditionalInfoProps {
+  glass?: boolean;
+}
+
+export default function AdditionalInfo({ glass = false }: AdditionalInfoProps) {
   return (
     <InfoCard
       title="Additional Information"
       backgroundImage="/images/idminebg/sh-a792-3.jpeg"
       shadowColor="shadow-sh_a792.3/10"
+      glass={glass}
       content={
         <div>
           <p>

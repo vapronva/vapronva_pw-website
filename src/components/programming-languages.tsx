@@ -1,11 +1,18 @@
 import InfoCard from "~/components/info-card";
 
-export default function ProgrammingLanguages() {
+interface ProgrammingLanguagesProps {
+  glass?: boolean;
+}
+
+export default function ProgrammingLanguages({
+  glass = false,
+}: ProgrammingLanguagesProps) {
   return (
     <InfoCard
       title="Stack + Ops"
       backgroundImage="/images/idminebg/el-82f7-9.jpeg"
       shadowColor="shadow-el_82f7.9/10"
+      glass={glass}
       content={
         <p>
           Primarily code in <span className="font-medium">Python</span> and{" "}
