@@ -3,13 +3,20 @@ import IncidentBadge from "~/components/incident-badge";
 interface FooterProps {
   nekoSpeed: number;
   setNekoSpeed: (speed: number) => void;
+  showStarfield: boolean;
+  setShowStarfield: (show: boolean) => void;
 }
 
 function makeNekoSuperFast(footerProps: FooterProps) {
   footerProps.setNekoSpeed(footerProps.nekoSpeed + 7.5);
 }
 
-export default function Footer({ nekoSpeed, setNekoSpeed }: FooterProps) {
+export default function Footer({
+  nekoSpeed,
+  setNekoSpeed,
+  showStarfield,
+  setShowStarfield,
+}: FooterProps) {
   return (
     <div className="mt-3 max-w-2xl sm:mx-auto sm:mt-6">
       <IncidentBadge />
@@ -39,10 +46,18 @@ export default function Footer({ nekoSpeed, setNekoSpeed }: FooterProps) {
             makeNekoSuperFast({
               nekoSpeed,
               setNekoSpeed,
+              showStarfield,
+              setShowStarfield,
             })
           }
         >
           Meow :)
+        </button>{" "}
+        <button
+          className="drop-shadow-glow_sm hover:drop-shadow-glow_lg_2 transition duration-200 ease-in-out focus:outline-hidden"
+          onClick={() => setShowStarfield(!showStarfield)}
+        >
+          {showStarfield ? "Sparks!" : "Stars!"}
         </button>
       </p>
       <p className="text-xn mt-1.5 text-center font-light text-white/30">

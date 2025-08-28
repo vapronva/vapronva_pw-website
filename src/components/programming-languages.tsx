@@ -39,13 +39,13 @@ export default function ProgrammingLanguages({
           <span className="font-medium">MikroTik</span> roots;{" "}
           <span className="font-medium">pfSense</span>/
           <span className="font-medium">Ubiquiti</span> these days. Spoke{" "}
-          <span className="font-medium">BGP</span>. <br />
-          <div className="leading-[1]">
-            <span className="text-xd font-thin">
+          <span className="font-medium">BGP</span>.
+          <span className="mt-2 block leading-[0.80]">
+            <span className="text-xd leading-[0.80] font-thin">
               Jack of all trades, master of none? <br />
               List not exhaustive; am flexible and always exploring.
             </span>
-          </div>
+          </span>
         </p>
       }
     />

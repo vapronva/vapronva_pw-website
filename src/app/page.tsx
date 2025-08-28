@@ -46,15 +46,12 @@ export default function Home() {
           </div>
           <ContactSection glass={showStarfield} />
           <ProjectsSection glass={showStarfield} />
-          <Footer nekoSpeed={nekoSpeed} setNekoSpeed={setNekoSpeed} />
-          <div className="mt-2 text-center">
-            <button
-              className="drop-shadow-glow_sm hover:drop-shadow-glow_lg_2 text-xs text-white/70 transition duration-200 ease-in-out focus:outline-hidden"
-              onClick={() => setShowStarfield((v) => !v)}
-            >
-              {showStarfield ? "help me" : "laggy shit"}
-            </button>
-          </div>
+          <Footer
+            nekoSpeed={nekoSpeed}
+            setNekoSpeed={setNekoSpeed}
+            showStarfield={showStarfield}
+            setShowStarfield={setShowStarfield}
+          />
         </div>
       </div>
     </>
