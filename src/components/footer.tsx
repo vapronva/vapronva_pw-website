@@ -19,7 +19,7 @@ export default function Footer({
 }: FooterProps) {
   return (
     <div className="mt-3 max-w-2xl sm:mx-auto sm:mt-6">
-      <IncidentBadge />
+      <IncidentBadge glass={showStarfield} />
       <p className="text-center text-xs font-light text-white/40">
         Inspired by{" "}
         <a

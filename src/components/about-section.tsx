@@ -28,14 +28,14 @@ export default function AboutSection({ glass = false }: AboutSectionProps) {
     <div
       className={`shadow-ba_b16c_1/10 max-w-5xl rounded-3xl px-5 py-5 shadow-2xl transition-all duration-500 ease-out sm:mx-auto sm:px-7 sm:py-7 ${
         glass
-          ? "border border-white/10 bg-white/[0.03] ring-1 ring-white/10 backdrop-blur-xl"
+          ? "border border-white/10 bg-white/[0.03] ring-1 ring-white/10 backdrop-blur-2xl backdrop-saturate-150"
           : "bg-cover bg-local bg-center bg-no-repeat ring-1 ring-gray-900/5"
       }`}
       style={
         glass
           ? {
               backgroundImage:
-                "linear-gradient(rgba(13, 14, 21, 0.4), rgba(13, 14, 21, 0.4))",
+                "linear-gradient(135deg, rgba(13, 14, 21, 0.08) 0%, rgba(13, 14, 21, 0.14) 50%, rgba(13, 14, 21, 0.20) 100%)",
             }
           : {
               backgroundImage:

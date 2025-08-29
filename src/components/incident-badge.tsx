@@ -18,7 +18,11 @@ interface Model {
   summary: Summary;
 }
 
-const IncidentBadge: React.FC = () => {
+interface IncidentBadgeProps {
+  glass?: boolean;
+}
+
+const IncidentBadge: React.FC<IncidentBadgeProps> = ({ glass = false }) => {
   const [data, setData] = useState<Model | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -57,22 +61,42 @@ const IncidentBadge: React.FC = () => {
         target="_blank"
       >
         {loading ? (
-          <div className="flex items-center space-x-2 rounded-full bg-gray-100 px-4 py-2 text-gray-600 shadow-xs dark:bg-gray-800 dark:text-gray-300">
+          <div
+            className={
+              glass
+                ? "flex items-center space-x-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-white/90 shadow-md ring-1 ring-white/10 backdrop-blur-2xl backdrop-saturate-150"
+                : "flex items-center space-x-2 rounded-full bg-gray-100 px-4 py-2 text-gray-600 shadow-xs dark:bg-gray-800 dark:text-gray-300"
+            }
+          >
             <Loader2 className="h-4 w-4 animate-spin" />
             <span className="font-medium">Checking status…</span>
           </div>
         ) : error ? (
-          <div className="flex items-center space-x-2 rounded-full bg-red-50 px-4 py-2 text-red-600 shadow-xs dark:bg-red-900/10 dark:text-red-400">
+          <div
+            className={
+              glass
+                ? "flex items-center space-x-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-red-400 shadow-md ring-1 ring-red-500/30 backdrop-blur-2xl backdrop-saturate-150"
+                : "flex items-center space-x-2 rounded-full bg-red-50 px-4 py-2 text-red-600 shadow-xs dark:bg-red-900/10 dark:text-red-400"
+            }
+          >
             <AlertTriangle className="h-4 w-4" />
             <span className="font-medium">{error}</span>
           </div>
         ) : (
           <div
-            className={`flex items-center space-x-2 rounded-full px-4 py-2 font-medium shadow-md transition-all duration-200 ${
-              isOperational
-                ? "bg-green-50 text-green-600 dark:bg-green-900/10 dark:text-green-400"
-                : "bg-amber-50 text-amber-600 dark:bg-amber-900/10 dark:text-amber-400"
-            }`}
+            className={
+              glass
+                ? `flex items-center space-x-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 font-medium shadow-md ring-1 backdrop-blur-2xl backdrop-saturate-150 transition-all duration-200 ${
+                    isOperational
+                      ? "text-green-300 ring-green-500/30"
+                      : "text-amber-300 ring-amber-500/30"
+                  }`
+                : `flex items-center space-x-2 rounded-full px-4 py-2 font-medium shadow-md transition-all duration-200 ${
+                    isOperational
+                      ? "bg-green-50 text-green-600 dark:bg-green-900/10 dark:text-green-400"
+                      : "bg-amber-50 text-amber-600 dark:bg-amber-900/10 dark:text-amber-400"
+                  }`
+            }
           >
             {isOperational ? (
               <>
