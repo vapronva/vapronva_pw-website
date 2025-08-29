@@ -10,6 +10,8 @@ type Star = {
   alpha: number;
   flickerDirection: number;
   color: "white" | "blue";
+  spawnY: number;
+  travelDistance: number;
 };
 
 type StarfieldProps = {
@@ -29,7 +31,7 @@ export default function Starfield({
   const animationFrameRef = useRef<number | null>(null);
   const starsRef = useRef<Star[]>([]);
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
-  const gradientRef = useRef<CanvasGradient | null>(null);
+  const clearGradientRef = useRef<CanvasGradient | null>(null);
   const sizeRef = useRef<{ width: number; height: number; dpr: number }>({
     width: 0,
     height: 0,
@@ -40,15 +42,24 @@ export default function Starfield({
   useEffect(() => {
     const createStars = (width: number, height: number) => {
       const numStars = Math.max(80, Math.floor(width * height * density));
-      const stars: Star[] = new Array(numStars).fill(0).map(() => ({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        radius: Math.random() * 1.6 + 0.5,
-        speedY: 10 + Math.random() * 28,
-        alpha: 0.2 + Math.random() * 0.6,
-        flickerDirection: Math.random() < 0.5 ? -1 : 1,
-        color: Math.random() < 0.35 ? "blue" : "white",
-      }));
+      const stars: Star[] = new Array(numStars).fill(0).map(() => {
+        const x = Math.random() * width;
+        const y = Math.random() * height;
+        const radius = Math.random() * 1.6 + 0.5;
+        const spawnY = y;
+        const travelDistance = height + 50 + radius - spawnY;
+        return {
+          x,
+          y,
+          radius,
+          speedY: 10 + Math.random() * 28,
+          alpha: 0.2 + Math.random() * 0.6,
+          flickerDirection: Math.random() < 0.5 ? -1 : 1,
+          color: Math.random() < 0.35 ? "blue" : "white",
+          spawnY,
+          travelDistance,
+        } as Star;
+      });
       starsRef.current = stars;
     };
     const rebuildFadeGradient = () => {
@@ -58,14 +69,14 @@ export default function Starfield({
       }
       const { height } = sizeRef.current;
       const gradient = ctx.createLinearGradient(0, 0, 0, height);
-      const base = "13, 14, 21";
-      const aTop = Math.min(0.92, fade * 1.0);
-      const aMid = Math.min(0.94, fade * 1.25);
-      const aBottom = Math.min(0.96, fade * 1.5);
-      gradient.addColorStop(0, `rgba(${base}, ${aTop})`);
-      gradient.addColorStop(0.6, `rgba(${base}, ${aMid})`);
-      gradient.addColorStop(1, `rgba(${base}, ${aBottom})`);
-      gradientRef.current = gradient;
+      const minA = 0.12;
+      const aTop = Math.max(minA, Math.min(0.85, fade * 1.0));
+      const aMid = Math.max(minA + 0.06, Math.min(0.9, fade * 1.4));
+      const aBottom = Math.max(minA + 0.12, Math.min(0.95, fade * 1.8));
+      gradient.addColorStop(0, `rgba(0, 0, 0, ${aTop})`);
+      gradient.addColorStop(0.6, `rgba(0, 0, 0, ${aMid})`);
+      gradient.addColorStop(1, `rgba(0, 0, 0, ${aBottom})`);
+      clearGradientRef.current = gradient;
     };
     const resizeToContainer = () => {
       const canvas = canvasRef.current;
@@ -112,15 +123,12 @@ export default function Starfield({
         Math.min(1, fadeInMs > 0 ? elapsed / fadeInMs : 1),
       );
       canvas.style.opacity = `${opacity}`;
-      if (!gradientRef.current) {
-        rebuildFadeGradient();
-      }
-      if (gradientRef.current) {
-        ctx.fillStyle = gradientRef.current;
-      } else {
-        ctx.fillStyle = `rgba(13, 14, 21, ${fade})`;
-      }
+      ctx.save();
+      ctx.globalCompositeOperation = "destination-out";
+      ctx.globalAlpha = Math.max(0.28, Math.min(0.75, fade * 2.2));
+      ctx.fillStyle = "#000";
       ctx.fillRect(0, 0, width, height);
+      ctx.restore();
       const stars = starsRef.current;
       for (const star of stars) {
         star.alpha += star.flickerDirection * dt * 0.4;
@@ -136,12 +144,23 @@ export default function Starfield({
           star.y = -star.radius - Math.random() * 50;
           star.x = Math.random() * width;
           star.speedY = 10 + Math.random() * 28;
+          star.spawnY = star.y;
+          star.travelDistance = height + star.radius + 50 - star.spawnY;
         }
+        const tRaw = (star.y - star.spawnY) / (star.travelDistance || 1);
+        const t = Math.max(0, Math.min(1, tRaw));
+        let burnFactor = 1;
+        if (t > 0.5) {
+          const nt = (t - 0.5) / 0.5;
+          const smooth = nt * nt * (3 - 2 * nt);
+          burnFactor = 1 - smooth;
+        }
+        const drawAlpha = Math.max(0, Math.min(1, star.alpha * burnFactor));
         ctx.beginPath();
         const color =
           star.color === "blue"
-            ? `rgba(101, 116, 165, ${star.alpha})`
-            : `rgba(255, 255, 255, ${star.alpha})`;
+            ? `rgba(101, 116, 165, ${drawAlpha})`
+            : `rgba(255, 255, 255, ${drawAlpha})`;
         ctx.fillStyle = color;
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
         ctx.fill();
