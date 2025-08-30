@@ -58,7 +58,25 @@ export default function AdditionalInfo({ glass = false }: AdditionalInfoProps) {
             >
               quiche eater
             </a>
-            . I did &quot;AI&quot; before it was cool.
+            . I did &quot;AI&quot; before it was cool. I love{" "}
+            <a
+              className="drop-shadow-glow_sm hover:drop-shadow-glow_sm_2 transition duration-200 ease-in-out"
+              href="https://en.wikipedia.org/wiki/Dash#Em_dash"
+              rel="nofollow noopener noreferrer"
+              target="_blank"
+            >
+              em dash
+            </a>{" "}
+            so much. White chocolate —{" "}
+            <a
+              className="drop-shadow-glow_sm hover:drop-shadow-glow_sm_2 transition duration-200 ease-in-out"
+              href="https://www.youtube.com/watch?v=-FrpuPLYnvY"
+              rel="nofollow noopener noreferrer"
+              target="_blank"
+            >
+              so good
+            </a>
+            .
           </p>
           <div className="mt-0.5 text-sm leading-none font-light tracking-tight">
             <p>
