@@ -15,9 +15,15 @@ const leftProjects: Array<{
   isRedacted?: boolean;
 }> = [
   {
-    title: "That's a Nice Argument Unfortunately Dot Com",
+    title: "CKIC (Caddy Kubernetes Ingress Controller)",
     description:
-      'Troll website, based on a popular meme, displays "private" information inferred from the user\'s IP address (fake "doxxing" by caterpillar).',
+      'Homelab‑friendly Caddy "ingress" for K8s — auto‑updates configs, provisions/reloads instances; built after ingress-nginx felt too rigid.',
+    links: [{ href: "https://gl.vprw.ru/vapronva/ckic", icon: SiGitlab }],
+  },
+  {
+    title: "That's a Nice Argument Unfortunately Com",
+    description:
+      'Troll meme site that displays "private" info inferred from your IP — fake "doxxing" by a caterpillar. Parody of the popular meme.',
     links: [
       {
         href: "https://thats-a-nice-argument-unfortunately.com",
@@ -34,9 +40,33 @@ const leftProjects: Array<{
     ],
   },
   {
+    title: "BeatMirror",
+    description:
+      "Mirrors BeatSaver maps and BeatLeader scores into Convex for an always‑fresh, searchable local index.",
+    links: [
+      { href: "https://gl.vprw.ru/vapronva/beatmirror", icon: SiGitlab },
+      { href: "https://beatmirror.docker.house", icon: Globe },
+    ],
+  },
+  {
+    title: "[REDACTED REDACTED]",
+    description:
+      "[REDA] app centralizing client IDs and jump‑links ([REDA], [REDACTED ], internal tools) [REDACTED]; actively used [REDACTED].",
+    links: [],
+    isRedacted: true,
+  },
+  {
+    title: "Linx Server",
+    description:
+      "Maintained Linx fork (Go): temp file/media sharing via curl/drag‑drop with syntax highlighting and previews; no accounts.",
+    links: [
+      { href: "https://gl.vprw.ru/vapronva/linx-server", icon: SiGitlab },
+    ],
+  },
+  {
     title: "Sosanie Ebla Bot Premium",
     description:
-      "Text-to-speech bot that aims to provide users with a new level of comfort in creating incredible and funny voice messages. It utilizes high-quality TTS voices from major providers like Tinkoff and Yandex.",
+      "Telegram text-to-speech bot for funny, high-quality voice messages using Tinkoff/Yandex/Mail.ru/Sberbank voices.",
     links: [
       {
         href: "https://gl.vprw.ru/sosanie-ebla-bot/sseblopremiumbot",
@@ -51,7 +81,7 @@ const leftProjects: Array<{
   {
     title: "isu2cal",
     description:
-      "Attempt to build an authentication system for ITMO's APIs and parse their schedule API into iCal format for alerts about changes and automatic updates in any calendar software.",
+      "Auth layer for ITMO’s APIs plus schedule to iCal conversion. Sends change alerts and keeps any calendar app auto-updated.",
     links: [
       {
         href: "https://gl.vprw.ru/itmo-university/isu2cal",
@@ -63,27 +93,20 @@ const leftProjects: Array<{
   {
     title: "[REDACTED REDACTED R]",
     description:
-      'Produces hundreds of "unique" images per one image by applying various transformations such as upscaling, rotation, gamma adjustments, metadata changes, and more. Its purpose is to bypass image search engines and restrictions on marketplaces.',
-    links: [],
-    isRedacted: true,
-  },
-  {
-    title: "[REDACTED REDAC]",
-    description:
-      "Provides a comprehensive analysis of [REDACTED ] articles: news search, keyword extraction, custom sentiment analysis, and summarization techniques, leveraging general-purpose language models to rank articles and calculate an educated score.",
+      'Generates hundreds of "unique" variants per image via upscaling, rotation, gamma/metadata tweaks, etc. Built to evade reverse-image search and marketplace restrictions.',
     links: [],
     isRedacted: true,
   },
   {
     title: "Low Quality Bot",
     description:
-      "Applies various modifications to AV media to make everything look like it was shot on a Nokia 7650. Overengineered and overcomplicated, but it works.",
+      "Applies AV degradations to make media look like it was shot on a Nokia 7650. Overengineered and overcomplicated, but it works.",
     links: [{ href: "https://gl.vprw.ru/low-quality-bot", icon: SiGitlab }],
   },
   {
     title: "PeerTube Custom Transcoding Profile",
     description:
-      "Introduces a transcoding profile with configurable settings for CRF, preset, tune, profile, and custom audio parameters; all the configurations and settings revolve around ffmpeg.",
+      "PeerTube transcoding profile with configurable CRF, preset, tune, profile, and audio params for that ffmpeg under the hood.",
     links: [
       {
         href: "https://www.npmjs.com/package/peertube-plugin-custom-transcoding-profile",
@@ -102,7 +125,7 @@ const leftProjects: Array<{
   {
     title: "Kriper2004 Minecraft LP (E1) — Analytics",
     description:
-      "Word-perfect transcription of a 96-hour episode of Kriper2004's Minecraft Lets Play series; utilizes OpenAI's Whisper, and fine-tuning ASR models.",
+      'Word-perfect transcription of a 96-hour Kriper2004\'s Minecraft "Let’s Play". Uses OpenAI Whisper and fine-tuned ASR models.',
     links: [
       {
         href: "https://gl.vprw.ru/vapronva/kriper2004-minecraft-lets-play-episode-1-analytics",
@@ -111,6 +134,7 @@ const leftProjects: Array<{
     ],
   },
 ];
+
 const rightProjects: Array<{
   title: string;
   description: string;
@@ -120,13 +144,13 @@ const rightProjects: Array<{
   {
     title: "Cumlord DNS",
     description:
-      "Self-managed DNS provider that focuses on robust DNSSEC support and extremely fast propagation times, built on top of PowerDNS.",
-    links: [{ href: "https://dns.cmld.ru", icon: Globe }],
+      "Self-managed DNS provider on PowerDNS with robust DNSSEC and ultra-fast propagation times with additional scripting support baked-in.",
+    links: [],
   },
   {
     title: "DNS Filtering Rulesets",
     description:
-      "Personal curated list of custom filtering rules for domains and hosts used in my DNS server.",
+      "Curated domain/host filtering rules used for my DNS recursive resolver. Personal blocklists and exceptions tailored for RU and then some.",
     links: [
       {
         href: "https://gl.vprw.ru/vapronva/dns-filtering-rulesets",
@@ -141,7 +165,7 @@ const rightProjects: Array<{
   {
     title: "Nebula.tv Video Archiver",
     description:
-      "Proof-of-concept; aims to archive videos from Nebula.tv by scraping and downloading content, by reverse-engineering the API.",
+      "Proof-of-concept archiver for Nebula.tv by reverse-engineering the API and scraping. Downloads and preserves videos.",
     links: [
       {
         href: "https://gl.vprw.ru/vapronva/nebula_tv_downloader-media_api",
@@ -154,15 +178,15 @@ const rightProjects: Array<{
     ],
   },
   {
-    title: "OSS — Docker Images",
+    title: "Container Images for OSS Projects",
     description:
-      "Compiling open-source projects into container images, with a few modifications made here and there.",
+      "Builds of open-source projects into container images with light patches where needed or bleeding-edge experience.",
     links: [{ href: "https://gl.vprw.ru/oss-images", icon: SiGitlab }],
   },
   {
     title: "Cheatsheet Worldclock",
     description:
-      "Simple app designed for Apple Watch that initially displays time and reveals additional information upon interaction. It was primarily created for cheating during school tests.",
+      "Apple Watch world clock that reveals extra notes on tap. Originally made for cheating on school tests.",
     links: [
       {
         href: "https://github.com/vapronva/cheatsheet_worldclock-wo_app",
@@ -173,7 +197,7 @@ const rightProjects: Array<{
   {
     title: "Computer Elements",
     description:
-      "Application developed as part of a friend's school project. It assists users in building their PCs, providing step-by-step guides and in-depth information.",
+      "iOS app on SwiftUI from a friend's school project to help build PCs — step-by-step guides and component info.",
     links: [
       {
         href: "https://github.com/vapronva/computer_elements-app",
@@ -184,7 +208,7 @@ const rightProjects: Array<{
   {
     title: "Vocal Balls",
     description:
-      "Speech-to-text processing bot for voice messages on Telegram, supporting both Russian and English languages; utilizes open-source solutions such as Vosk and ReCasePunc.",
+      'Telegram speech-to-text bot for voice messages (RU/EN) using Vosk and ReCasePunc and AppWrite for the early "AI" times.',
     links: [
       {
         href: "https://github.com/vapronva/vocal_balls_bot-tg_bot",
@@ -193,15 +217,34 @@ const rightProjects: Array<{
     ],
   },
   {
+    title: "[REDACTED REDAC]",
+    description:
+      "Analyzes [REDACTED] articles — news search, keyword extraction, custom sentiment, and summarization. Uses LLMs to rank articles and compute an [REDA] score.",
+    links: [],
+    isRedacted: true,
+  },
+  {
     title: "Simple Streaming",
     description:
-      "Application that streams low-latency microphone audio from iOS devices; developed using HaishinKit.",
+      "iOS app that streams low-latency microphone audio using HaishinKit.",
     links: [
       {
         href: "https://gl.vprw.ru/vapronva/simple_streaming-app",
         icon: SiGitlab,
       },
     ],
+  },
+  {
+    title: "GitLab CI/CD Components Catalog",
+    description:
+      "Reusable GitLab CI components for build/test/security/deploy/release — consistent pipelines, minimal YAML.",
+    links: [{ href: "https://gl.vprw.ru/ci", icon: SiGitlab }],
+  },
+  {
+    title: "IP Geo Balls",
+    description:
+      "Speaking ipgeobase.ru’s XML API while aggregating MaxMind, IPinfo, and ProxyCheck; single fast endpoint with SQLite cache.",
+    links: [{ href: "https://gl.vprw.ru/vapronva/ipgeoballs", icon: SiGitlab }],
   },
 ];
 
@@ -258,10 +301,8 @@ export default function ProjectsSection({
       </div>
       <p className="text-xa leading-tighter mt-1 text-white sm:mt-2">
         <i>
-          And much more! I have numerous other smaller projects that may not
-          have garnered the same attention. For a comprehensive view of my
-          projects, including many others not listed here, I invite you to
-          explore{" "}
+          And plenty more! For everything else (small tools, experiments, other
+          big projects, etc) see{" "}
           <a
             href="https://gl.vprw.ru/vapronva"
             rel="noreferrer noopener"
@@ -269,15 +310,6 @@ export default function ProjectsSection({
             className="drop-shadow-glow_sm hover:drop-shadow-glow_sm_2 transition duration-200 ease-in-out"
           >
             my GitLab instance
-          </a>{" "}
-          or{" "}
-          <a
-            href="https://github.com/vapronva"
-            rel="noreferrer noopener"
-            target="_blank"
-            className="drop-shadow-glow_sm hover:drop-shadow-glow_sm_2 transition duration-200 ease-in-out"
-          >
-            my GitHub profile
           </a>
           .
         </i>
