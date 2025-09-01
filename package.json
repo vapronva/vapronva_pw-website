@@ -1,6 +1,6 @@
 {
   "name": "vapronvapw-web",
-  "version": "3.2.3",
+  "version": "3.2.4",
   "private": true,
   "type": "module",
   "scripts": {
@@ -22,7 +22,7 @@
     "next": "^15.5.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "simple-icons": "^15.12.0"
+    "simple-icons": "^15.13.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
