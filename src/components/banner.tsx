@@ -24,7 +24,7 @@ export default function Banner() {
           >
             cmld.network
           </a>
-          . And yes, I have 60+ domains.
+          . And yes, I have 70+ domains.
         </p>
       </div>
     </div>

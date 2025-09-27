@@ -19,20 +19,21 @@ export default function ProgrammingLanguages({
           <span className="font-medium">Go</span>; sometimes{" "}
           <span className="font-medium">TypeScript</span>;{" "}
           <span className="font-medium">Bash</span> glue for the seams;
-          occasional <span className="font-medium">Swift</span>/
-          <span className="font-medium">Java</span>; dabbled in{" "}
-          <span className="font-medium">Rust</span>/
-          <span className="font-medium">C</span>. Building services, tooling;
-          setting up infra, wiring up networks.{" "}
+          occasional <span className="font-medium">Swift</span> and{" "}
+          <span className="font-medium">Java</span>; messed with{" "}
+          <span className="font-medium">Rust</span> and{" "}
+          <span className="font-medium">C</span>.{" "}
           <span className="font-medium">Kubernetes</span> with{" "}
           <span className="font-medium">Cilium</span> on{" "}
           <span className="font-medium">containerd</span>.{" "}
-          <span className="font-medium">CI/CD</span> and{" "}
-          <span className="font-medium">IaC</span> in{" "}
-          <span className="font-medium">GitLab</span>.{" "}
+          <span className="font-medium">GitLab CI/CD</span> and{" "}
+          <span className="font-medium">IaC</span> with{" "}
+          <span className="font-medium">Ansible</span> and{" "}
+          <span className="font-medium">Terraform</span>.{" "}
           <span className="font-medium">PostgreSQL</span> and{" "}
           <span className="font-medium">ClickHouse</span>;{" "}
-          <span className="font-medium">SQL</span> raw dogger.{" "}
+          <span className="font-medium">SQL</span> raw dogger. Love{" "}
+          <span className="font-medium">Convex</span>.{" "}
           <span className="font-medium">Tailscale</span> fanatic.{" "}
           <span className="font-medium">RHEL</span>-leaning; lots of{" "}
           <span className="font-medium">Ubuntu</span> in the fleet.{" "}
@@ -43,7 +44,8 @@ export default function ProgrammingLanguages({
           <span className="mt-2 block leading-[0.80]">
             <span className="text-xd leading-[0.80] font-thin">
               Jack of all trades, master of none? <br />
-              List not exhaustive; am flexible and always exploring.
+              This list is not exhaustive; am flexible and always exploring new
+              thingies.
             </span>
           </span>
         </p>

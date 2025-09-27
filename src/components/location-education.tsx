@@ -16,9 +16,9 @@ export default function LocationEducation({
       content={
         <>
           <p>
-            Omsk-born, based in Saint Petersburg. UK and Germany exchange alum.
-            ITMO: SWE to ICT <span className="font-thin">(incomplete)</span>;
-            now ETU: Telecom Engineering. SRE at Selectel.
+            Omsk-born, now based in Saint Petersburg. UK and Germany exchange
+            alumni. SWE to ICT + Telecom Engineering{" "}
+            <span className="font-thin">(incomplete)</span>. SRE at Selectel.
           </p>
         </>
       }

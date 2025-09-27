@@ -58,7 +58,7 @@ const leftProjects: Array<{
   {
     title: "Linx Server",
     description:
-      "Maintained Linx fork (Go): temp file/media sharing via curl/drag‑drop with syntax highlighting and previews; no accounts.",
+      "Maintained Linx fork: temporary file/media sharing via curl or drag-n-drop with syntax highlighting and previews; no accounts.",
     links: [
       { href: "https://gl.vprw.ru/vapronva/linx-server", icon: SiGitlab },
     ],
@@ -165,7 +165,7 @@ const rightProjects: Array<{
   {
     title: "Nebula.tv Video Archiver",
     description:
-      "Proof-of-concept archiver for Nebula.tv by reverse-engineering the API and scraping. Downloads and preserves videos.",
+      "Proof-of-concept archiver for Nebula.tv by reverse-engineering and scraping the API. Downloads and preserves videos.",
     links: [
       {
         href: "https://gl.vprw.ru/vapronva/nebula_tv_downloader-media_api",
@@ -197,7 +197,7 @@ const rightProjects: Array<{
   {
     title: "Computer Elements",
     description:
-      "iOS app on SwiftUI from a friend's school project to help build PCs — step-by-step guides and component info.",
+      "iOS app on SwiftUI for a friend's school project to help build PCs — step-by-step guides and component info.",
     links: [
       {
         href: "https://github.com/vapronva/computer_elements-app",

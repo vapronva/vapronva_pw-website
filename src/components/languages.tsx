@@ -15,7 +15,7 @@ export default function Languages({ glass = false }: LanguagesProps) {
       content={
         <p>
           <span className="font-medium">Russian</span> (native),{" "}
-          <span className="font-medium">English</span> (C1; fluent),{" "}
+          <span className="font-medium">English</span> (C1),{" "}
           <span className="font-medium">German</span> (A2).
         </p>
       }

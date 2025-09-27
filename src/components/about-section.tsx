@@ -70,19 +70,18 @@ export default function AboutSection({ glass = false }: AboutSectionProps) {
           )}
           My name is <span className="font-medium">Vladimir</span>{" "}
           <span className="font-extralight">
-            (online, you may know me by &quot;
-            <span className="font-light">vapronva</span>&quot;)
+            (or online &quot;
+            <span className="font-medium">vapronva</span>&quot;)
           </span>
-          , a 22-year-old nerdy guy from Russia with an insatiable passion for
-          engineering. I do many things: software development; system
-          admin/reliability, DevSecGitNetMLOps{" "}
-          <span className="text-xd">(🤡)</span>, networking, homelabbing{" "}
-          <span className="font-thin">(almost at r/HomeDataCenter level)</span>;
-          video editing + colo<s>u</s>r grading… Oh, and I like rhythm games;
-          love listening to anything from electronic to J-Pop music. Average
-          Linux enjoyer (and Mac user with 13+ YoE). Big 152-ФЗ and 63-ФЗ РФ
-          fan. ML and NLP enthusiast. Self-hosting maniac. VR fanboy. Previously
-          an AS.
+          , a 22-year-old nerdy guy from Russia with a passion for engineering.
+          I do many things: software development; system admin/reliability,
+          DevSecGitNetMLOps <span className="text-xd">(🤡)</span>, networking,
+          homelabbing; video editing + colo<s>u</s>r grading… Oh, and I like
+          rhythm games; love listening to anything from electronic to J-Pop
+          music; tried music production. Amused by live production and tech
+          theatre. Average Linux enjoyer (and Mac user with 13+ YoE). Big 152-ФЗ
+          and 63-ФЗ РФ fan. ML and NLP enthusiast. Self-hosting maniac. VR
+          fanboy. Previously an AS.
         </p>
       </div>
     </div>
