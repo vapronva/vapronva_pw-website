@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function doesTheDisplaySupportHDR(): boolean {
   if (typeof window !== "undefined") {
@@ -20,10 +20,7 @@ interface AboutSectionProps {
 }
 
 export default function AboutSection({ glass = false }: AboutSectionProps) {
-  const [supportsHDR, setSupportsHDR] = useState(false);
-  useEffect(() => {
-    setSupportsHDR(doesTheDisplaySupportHDR());
-  }, []);
+  const [supportsHDR] = useState(() => doesTheDisplaySupportHDR());
   return (
     <div
       className={`shadow-ba_b16c_1/10 max-w-5xl rounded-3xl px-5 py-5 shadow-2xl transition-all duration-500 ease-out sm:mx-auto sm:px-7 sm:py-7 ${
@@ -62,6 +59,7 @@ export default function AboutSection({ glass = false }: AboutSectionProps) {
               <source src="/videos/pfp-2022-hdred.mp4" type="video/mp4" />
             </video>
           ) : (
+            // eslint-disable-next-line @next/next/no-img-element
             <img
               src="/images/pfp/new-2022-hkc-out.jpeg"
               alt="vapronva's profile picture (2022)"
