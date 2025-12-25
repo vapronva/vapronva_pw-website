@@ -1,11 +1,10 @@
-import { type NextConfig } from "next";
+import type { NextConfig } from "next";
+import { withSentryConfig } from "@sentry/nextjs";
 
 const config: NextConfig = {
   output: "standalone",
   reactStrictMode: true,
 };
-
-import { withSentryConfig } from "@sentry/nextjs";
 
 export default withSentryConfig(config, {
   org: "cmld",
@@ -13,10 +12,7 @@ export default withSentryConfig(config, {
   sentryUrl: "https://sentry.cumlord.ru/",
   silent: !process.env.CI,
   widenClientFileUpload: true,
-  reactComponentAnnotation: {
-    enabled: true,
-  },
-  tunnelRoute: "/monitoring",
+  tunnelRoute: "/mwah",
   disableLogger: true,
   automaticVercelMonitors: true,
 });
