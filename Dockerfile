@@ -2,7 +2,7 @@ FROM docker-registry.selectel.ru/library/node:24-alpine AS builder
 
 WORKDIR /usr/src/app
 
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY package.json pnpm-lock.yaml ./
 
 RUN npm install --global pnpm@10 && \
     pnpm install
