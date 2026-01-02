@@ -1,4 +1,4 @@
-FROM docker-registry.selectel.ru/library/node:24-alpine AS builder
+FROM docker-registry.selectel.ru/library/node:25-alpine AS builder
 
 WORKDIR /usr/src/app
 
@@ -15,7 +15,7 @@ RUN --mount=type=secret,id=NODE_ENV \
     SENTRY_AUTH_TOKEN="$(cat /run/secrets/SENTRY_AUTH_TOKEN)" && \
     pnpm run build
 
-FROM docker-registry.selectel.ru/library/node:24-alpine
+FROM docker-registry.selectel.ru/library/node:25-alpine
 
 WORKDIR /usr/src/app
 
