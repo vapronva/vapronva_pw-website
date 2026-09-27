@@ -1,50 +1,41 @@
 {
   "name": "vapronvapw-web",
-  "version": "3.3.1",
+  "version": "3.3.2",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "next build",
-    "check": "eslint . && tsc --noEmit",
-    "dev": "next dev --turbo",
+    "check": "next typegen && eslint . && tsc --noEmit",
+    "dev": "next dev",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "preview": "next build && next start",
     "start": "next start",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "next typegen && tsc --noEmit",
     "format:write": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx,json,cjs,mjs,yml,yaml}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx,json,cjs,mjs,yml,yaml}\" --cache"
   },
   "dependencies": {
-    "@icons-pack/react-simple-icons": "^13.8.0",
-    "@sentry/nextjs": "^10.32.1",
-    "lucide-react": "^0.562.0",
-    "next": "^16.1.1",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "@icons-pack/react-simple-icons": "^13.15.1",
+    "@sentry/nextjs": "^11.0.0",
+    "lucide-react": "^1.48.0",
+    "next": "^16.3.6",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^16.1.1",
-    "@tailwindcss/postcss": "^4.1.18",
-    "@types/eslint": "^9.6.1",
-    "@types/node": "^25.0.3",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
-    "eslint": "^9.39.2",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "postcss": "^8.5.6",
-    "prettier": "^3.7.4",
-    "prettier-plugin-tailwindcss": "^0.7.2",
-    "tailwindcss": "^4.1.18",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.51.0"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@sentry/cli",
-      "@tailwindcss/oxide",
-      "sharp",
-      "unrs-resolver"
-    ]
+    "@next/eslint-plugin-next": "^16.3.6",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^10.11.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "postcss": "^8.5.28",
+    "prettier": "^3.9.9",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.70.1"
   }
 }

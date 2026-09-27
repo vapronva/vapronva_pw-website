@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-import { withSentryConfig } from "@sentry/nextjs";
+import { withSentryConfig } from "@sentry/nextjs/config";
 
 const config: NextConfig = {
   output: "standalone",
@@ -13,6 +13,7 @@ export default withSentryConfig(config, {
   silent: !process.env.CI,
   widenClientFileUpload: true,
   tunnelRoute: "/mwah",
-  disableLogger: true,
-  automaticVercelMonitors: true,
+  bundleSizeOptimizations: {
+    excludeDebugStatements: true,
+  },
 });

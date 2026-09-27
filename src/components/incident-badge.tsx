@@ -26,29 +26,26 @@ const IncidentBadge: React.FC<IncidentBadgeProps> = ({ glass = false }) => {
   const [data, setData] = useState<Model | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const fetchStatus = async (): Promise<void> => {
-    try {
-      const res = await fetch("https://status.cmld.ru/proxy/status.cmld.ru");
-      if (!res.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const json = (await res.json()) as Model;
-      setData(json);
-      setError(null);
-    } catch (err) {
-      const errorMessage =
-        err instanceof Error ? err.message : "Something went wrong";
-      setError(errorMessage);
-      setData(null);
-    } finally {
-      setLoading(false);
-    }
-  };
   useEffect(() => {
-    fetchStatus().catch(console.error);
-    const interval = setInterval(() => {
-      fetchStatus().catch(console.error);
-    }, 20000);
+    const fetchStatus = () =>
+      fetch("https://status.cmld.ru/proxy/status.cmld.ru")
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return res.json() as Promise<Model>;
+        })
+        .then((json) => {
+          setData(json);
+          setError(null);
+        })
+        .catch((err: unknown) => {
+          setError(err instanceof Error ? err.message : "Something went wrong");
+          setData(null);
+        })
+        .finally(() => setLoading(false));
+    void fetchStatus();
+    const interval = setInterval(() => void fetchStatus(), 20000);
     return () => clearInterval(interval);
   }, []);
   const isOperational = data?.summary.ongoing_incidents?.length === 0;

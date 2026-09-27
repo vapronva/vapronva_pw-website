@@ -6,10 +6,9 @@ deployment:
   containers:
     - name: frontend
       image:
-        registry: rg.gl.vprw.ru
+        registry: docker.horse
         repository: vapronva/vapronva-pw/frontend
         tag: latest
-        pullPolicy: Always
       ports:
         - name: http
           containerPort: 3000
@@ -23,7 +22,7 @@ deployment:
               - key: kubernetes.io/hostname
                 operator: In
                 values:
-                  - converted-conduit
+                  - unnecessary-addition
 
 services:
   - name: frontend-vapronvapw
@@ -33,3 +32,10 @@ services:
         port: 3000
         targetPort: http
         protocol: TCP
+
+ckic:
+  enabled: true
+  sites:
+    - hosts:
+        - vapronva.pw
+      upstream: frontend-vapronvapw:3000

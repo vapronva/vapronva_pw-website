@@ -58,7 +58,7 @@ export default function Starfield({
           color: Math.random() < 0.35 ? "blue" : "white",
           spawnY,
           travelDistance,
-        } as Star;
+        };
       });
       starsRef.current = stars;
     };
