@@ -21,7 +21,7 @@ export function useSceneControls() {
 }
 
 export default function Scene({ children }: { children: ReactNode }) {
-  const [isStarry, setIsStarry] = useState(true);
+  const [isStarry, setIsStarry] = useState(false);
   const [nekoSpeed, setNekoSpeed] = useState(1);
   const controls = useMemo(
     () => ({

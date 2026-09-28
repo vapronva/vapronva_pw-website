@@ -26,7 +26,7 @@ export default function Footer() {
       </p>
       <p className="mt-1.5 text-center text-xn font-light text-white/30">
         The{" "}
-        <a href="https://gl.vprw.ru/vapronva/vapronva-pw" target="_blank">
+        <a href="https://git.horse/vapronva/vapronva-pw" target="_blank">
           website was built
         </a>{" "}
         using{" "}

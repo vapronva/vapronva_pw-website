@@ -2,10 +2,7 @@ import Card from "~/components/card";
 
 export default function AdditionalInfo() {
   return (
-    <Card
-      title="Additional Information"
-      className="mt-3 max-w-5xl shadow-sh_a792_3/10 [--card-photo:url(/images/idminebg/sh-a792-3.jpeg)] sm:mx-auto sm:mt-6 sm:p-6"
-    >
+    <Card className="mt-3 max-w-5xl shadow-sh_a792.3/10 [--card-photo:url(/images/idminebg/sh-a792-3.jpeg)] sm:mx-auto sm:mt-6 sm:p-6">
       <p>
         <a
           className="drop-shadow-glow_sm transition duration-200 ease-in-out hover:drop-shadow-glow_sm_2"
@@ -46,13 +43,13 @@ export default function AdditionalInfo() {
         >
           quiche eater
         </a>
-        . I did &quot;AI&quot; before it was cool? I love{" "}
+        . I miss &quot;ML&quot;… I love{" "}
         <a
           className="drop-shadow-glow_sm transition duration-200 ease-in-out hover:drop-shadow-glow_sm_2"
           href="https://en.wikipedia.org/wiki/Dash#Em_dash"
           target="_blank"
         >
-          em dash
+          em dashes
         </a>{" "}
         so much. White chocolate —{" "}
         <a
@@ -62,17 +59,16 @@ export default function AdditionalInfo() {
         >
           so good
         </a>
-        .
+        . I like water and have taste-tested multiple dozens of brands.
       </p>
-      <p className="mt-0.5 text-sm leading-none font-light tracking-tight">
+      <p className="mt-2 text-sm leading-none font-light tracking-tight">
         Favourite song quotes:{" "}
         <a
           className="transition duration-200 ease-in-out hover:drop-shadow-glow_sm_2"
           href="https://www.youtube.com/watch?v=dCWCo4S1-to&t=13s"
           target="_blank"
         >
-          &quot;Komm mir nich mit AGBs, die haben keine Gültigkeit, weil ich die
-          gar nicht les&apos;&quot;
+          &quot;Komm mir nich mit AGBs&quot;
         </a>{" "}
         /{" "}
         <a
@@ -131,6 +127,39 @@ export default function AdditionalInfo() {
           target="_blank"
         >
           &quot;Is it a scandal if you try and screw it up sometimes&quot;
+        </a>{" "}
+        /{" "}
+        <a
+          className="transition duration-200 ease-in-out hover:drop-shadow-glow_sm_2"
+          href="https://www.youtube.com/watch?v=IFPKIbEZJUU&t=39s"
+          target="_blank"
+        >
+          &quot;There's something within your shadow&quot;
+        </a>{" "}
+        /{" "}
+        <a
+          className="transition duration-200 ease-in-out hover:drop-shadow-glow_sm_2"
+          href="https://www.youtube.com/watch?v=9KAQaKydqA0&t=71s"
+          target="_blank"
+        >
+          &quot;When we should be daydreamers&quot;
+        </a>{" "}
+        /{" "}
+        <a
+          className="transition duration-200 ease-in-out hover:drop-shadow-glow_sm_2"
+          href="https://www.youtube.com/watch?v=Kybi1q3rjdk&t=31s"
+          target="_blank"
+        >
+          &quot;Since a fake must work to keep on improving&quot;
+        </a>{" "}
+        /{" "}
+        <a
+          className="transition duration-200 ease-in-out hover:drop-shadow-glow_sm_2"
+          href="https://www.youtube.com/watch?v=MQtjNI-Nkd0&t=262s"
+          target="_blank"
+        >
+          &quot;Life&apos;s too short to waste it on being withdrawn;
+          life&apos;s too short to waste it at all&quot;
         </a>{" "}
         and many more.
       </p>

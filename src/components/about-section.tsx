@@ -2,10 +2,7 @@ import Card from "~/components/card";
 
 export default function AboutSection() {
   return (
-    <Card
-      title="Greetings! I am…"
-      className="max-w-5xl shadow-ba_b16c_1/10 [--card-photo:url(/images/idminebg/ba-b16c-1.jpeg)] sm:mx-auto sm:p-7"
-    >
+    <Card className="max-w-5xl shadow-ba_b16c_1/10 [--card-photo:url(/images/idminebg/ba-b16c-1.jpeg)] sm:mx-auto sm:p-7">
       <p>
         <video
           muted
@@ -21,20 +18,19 @@ export default function AboutSection() {
             media="(dynamic-range: high)"
           />
         </video>
-        My name is <span className="font-medium">Vladimir</span>{" "}
+        I'm <span className="font-medium">Vladimir</span>{" "}
         <span className="font-extralight">
-          (or online &quot;
-          <span className="font-medium">vapronva</span>&quot;)
+          (&quot;
+          <span className="font-medium">vapronva</span>&quot; online)
         </span>
-        , a 22-year-old nerdy guy from Russia with a passion for engineering. I
-        do many things: software development; system admin/reliability,
-        DevSecGitNetMLOps <span className="text-xd">(🤡)</span>, networking,
-        homelabbing; video editing + colo<s>u</s>r grading… Oh, and I like
-        rhythm games; love listening to anything from electronic to J-Pop music;
-        tried music production. Amused by live production and tech theatre.
-        Average Linux enjoyer (and Mac user with 13+ YoE). Big 152-ФЗ and 63-ФЗ
-        РФ fan. ML and NLP enthusiast. Self-hosting maniac. VR fanboy.
-        Previously an AS.
+        , a 23-year-old nerdy guy from Russia. I do the whole DevSecGitNetMLOps{" "}
+        <span className="text-xd">(🤡)</span> thing, plus networking,
+        homelabbing, video editing and colo<s>u</s>r grading… Oh, and I'm a Beat
+        Saber addict, listen to anything from electronic to J-Pop, tried music
+        production and SynthV tuning. Fascinated by live production and tech
+        theatre. Average Linux enjoyer and Mac user with 14+ YoE. Big 152-ФЗ and
+        63-ФЗ РФ fan. NLP enthusiast. Self-hosting maniac. VR fanboy. Previously
+        an AS. Snowboarder. Aspiring commercial pilot.
       </p>
     </Card>
   );

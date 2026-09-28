@@ -18,7 +18,7 @@ import SocialLink from "~/components/social-link";
 
 const socialLinks = [
   { icon: SiMatrix, name: "Matrix" },
-  { href: "https://vapron_va.t.me", icon: SiTelegram, name: "Telegram" },
+  { href: "https://t.me/vapron_va", icon: SiTelegram, name: "Telegram" },
   {
     href: "https://discord.com/users/483991031306780683",
     icon: SiDiscord,
@@ -56,7 +56,7 @@ const socialLinks = [
     name: "GitHub",
   },
   {
-    href: "https://gl.vprw.ru/vapronva",
+    href: "https://git.horse/vapronva",
     icon: SiGitlab,
     name: "GitLab",
   },
