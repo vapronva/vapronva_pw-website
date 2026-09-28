@@ -1,6 +1,4 @@
 ---
 allowBuilds:
-  "@sentry/cli": true
   "@tailwindcss/oxide": true
   sharp: true
-  unrs-resolver: true

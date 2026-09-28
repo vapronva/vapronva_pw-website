@@ -12,8 +12,8 @@
     "preview": "next build && next start",
     "start": "next start",
     "typecheck": "next typegen && tsc --noEmit",
-    "format:write": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx,json,cjs,mjs,yml,yaml}\" --cache",
-    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx,json,cjs,mjs,yml,yaml}\" --cache"
+    "format:write": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx,json,cjs,mjs,css,yml,yaml}\" --cache",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx,json,cjs,mjs,css,yml,yaml}\" --cache"
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "^13.15.1",

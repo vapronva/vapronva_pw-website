@@ -1,19 +1,10 @@
-import {
-  type IconType,
-  SiGithub,
-  SiGitlab,
-  SiNpm,
-} from "@icons-pack/react-simple-icons";
-import { Globe, type LucideIcon } from "lucide-react";
+import { SiGithub, SiGitlab, SiNpm } from "@icons-pack/react-simple-icons";
+import { Globe } from "lucide-react";
 
+import Card from "~/components/card";
 import ProjectItem from "~/components/project-item";
 
-const leftProjects: Array<{
-  title: string;
-  description: string;
-  links: Array<{ href: string; icon: LucideIcon | IconType }>;
-  isRedacted?: boolean;
-}> = [
+const leftProjects = [
   {
     title: "CKIC (Caddy Kubernetes Ingress Controller)",
     description:
@@ -52,7 +43,6 @@ const leftProjects: Array<{
     title: "[REDACTED REDACTED]",
     description:
       "[REDA] app centralizing client IDs and jump‑links ([REDA], [REDACTED ], internal tools) [REDACTED]; actively used [REDACTED].",
-    links: [],
     isRedacted: true,
   },
   {
@@ -94,7 +84,6 @@ const leftProjects: Array<{
     title: "[REDACTED REDACTED R]",
     description:
       'Generates hundreds of "unique" variants per image via upscaling, rotation, gamma/metadata tweaks, etc. Built to evade reverse-image search and marketplace restrictions.',
-    links: [],
     isRedacted: true,
   },
   {
@@ -135,17 +124,11 @@ const leftProjects: Array<{
   },
 ];
 
-const rightProjects: Array<{
-  title: string;
-  description: string;
-  links: Array<{ href: string; icon: LucideIcon }>;
-  isRedacted?: boolean;
-}> = [
+const rightProjects = [
   {
     title: "Cumlord DNS",
     description:
       "Self-managed DNS provider on PowerDNS with robust DNSSEC and ultra-fast propagation times with additional scripting support baked-in.",
-    links: [],
   },
   {
     title: "DNS Filtering Rulesets",
@@ -220,7 +203,6 @@ const rightProjects: Array<{
     title: "[REDACTED REDAC]",
     description:
       "Analyzes [REDACTED] articles — news search, keyword extraction, custom sentiment, and summarization. Uses LLMs to rank articles and compute an [REDA] score.",
-    links: [],
     isRedacted: true,
   },
   {
@@ -248,72 +230,38 @@ const rightProjects: Array<{
   },
 ];
 
-interface ProjectsSectionProps {
-  glass?: boolean;
-}
-
-export default function ProjectsSection({
-  glass = false,
-}: ProjectsSectionProps) {
+export default function ProjectsSection() {
   return (
-    <div
-      className={`shadow-el_82f7.4/10 mt-3 max-w-5xl rounded-3xl px-5 py-5 shadow-2xl transition-all duration-500 ease-out sm:mx-auto sm:mt-6 sm:px-7 sm:py-7 ${
-        glass
-          ? "border border-white/10 bg-white/[0.03] ring-1 ring-white/10 backdrop-blur-2xl backdrop-saturate-150"
-          : "bg-cover bg-local bg-center bg-no-repeat ring-1 ring-gray-900/5"
-      }`}
-      style={
-        glass
-          ? {
-              backgroundImage:
-                "linear-gradient(135deg, rgba(13, 14, 21, 0.08) 0%, rgba(13, 14, 21, 0.14) 50%, rgba(13, 14, 21, 0.20) 100%)",
-            }
-          : {
-              backgroundImage:
-                "linear-gradient(rgba(37, 37, 39, 0.95), rgba(37, 37, 39, 0.9)), url(/images/idminebg/el-82f7-4.jpeg)",
-            }
-      }
+    <Card
+      title="Projects"
+      className="mt-3 max-w-5xl shadow-el_82f7_4/10 [--card-photo:url(/images/idminebg/el-82f7-4.jpeg)] sm:mx-auto sm:mt-6 sm:p-7"
     >
-      <h3 className="mb-1 text-xs font-semibold text-white">Projects</h3>
       <div className="flex flex-col gap-2 sm:flex-row sm:gap-4">
         <div className="w-full divide-y divide-gray-500/40 sm:w-1/2">
-          {leftProjects.map((project, index) => (
-            <ProjectItem
-              key={index}
-              title={project.title}
-              description={project.description}
-              links={project.links}
-              isRedacted={project.isRedacted}
-            />
+          {leftProjects.map((project) => (
+            <ProjectItem key={project.title} {...project} />
           ))}
         </div>
         <div className="w-full divide-y divide-gray-500/40 sm:w-1/2">
-          {rightProjects.map((project, index) => (
-            <ProjectItem
-              key={index}
-              title={project.title}
-              description={project.description}
-              links={project.links}
-              isRedacted={project.isRedacted}
-            />
+          {rightProjects.map((project) => (
+            <ProjectItem key={project.title} {...project} />
           ))}
         </div>
       </div>
-      <p className="text-xa leading-tighter mt-1 text-white sm:mt-2">
+      <p className="mt-1 text-xa leading-tighter sm:mt-2">
         <i>
           And plenty more! For everything else (small tools, experiments, other
           big projects, etc) see{" "}
           <a
             href="https://gl.vprw.ru/vapronva"
-            rel="noreferrer noopener"
             target="_blank"
-            className="drop-shadow-glow_sm hover:drop-shadow-glow_sm_2 transition duration-200 ease-in-out"
+            className="drop-shadow-glow_sm transition duration-200 ease-in-out hover:drop-shadow-glow_sm_2"
           >
             my GitLab instance
           </a>
           .
         </i>
       </p>
-    </div>
+    </Card>
   );
 }

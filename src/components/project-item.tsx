@@ -1,18 +1,24 @@
-import React from "react";
-import { type LucideIcon } from "lucide-react";
 import { type IconType } from "@icons-pack/react-simple-icons";
-
-interface ProjectLink {
-  href: string;
-  icon: LucideIcon | IconType;
-  rel?: string;
-}
+import { type LucideIcon } from "lucide-react";
 
 interface ProjectItemProps {
   title: string;
   description: string;
-  links: ProjectLink[];
+  links?: { href: string; icon: LucideIcon | IconType }[];
   isRedacted?: boolean;
+}
+
+function redactBrackets(text: string) {
+  return text.split(/(\[[^\]]+\])/).map((part, index) =>
+    index % 2 === 1 ? (
+      <span key={index} className="relative inline-block">
+        {part}
+        <span className="absolute inset-0 bg-black" />
+      </span>
+    ) : (
+      part
+    ),
+  );
 }
 
 export default function ProjectItem({
@@ -21,62 +27,40 @@ export default function ProjectItem({
   links = [],
   isRedacted = false,
 }: ProjectItemProps) {
-  const renderRedactedDescription = (text: string) => {
-    if (!isRedacted) {
-      return text;
-    }
-    const regex = /(\[[^\]]+\])/g;
-    const parts = text.split(regex);
-    return parts.map((part, index) => {
-      if (part.startsWith("[") && part.endsWith("]")) {
-        return (
-          <span key={index} className="relative inline-block">
-            <span className="text-white">{part}</span>
-            <span className="bg-opacity-100 absolute inset-[-0.3] bg-black"></span>
-          </span>
-        );
-      }
-      return part;
-    });
-  };
+  const heading = (
+    <h4 className="text-base leading-tighter font-medium">{title}</h4>
+  );
   return (
-    <div className="flex flex-col pt-1 pb-1">
+    <div className="flex flex-col py-1">
       <div className="-mt-0.5 flex flex-row flex-wrap items-center">
         {isRedacted ? (
           <div className="relative">
-            <h4 className="leading-tighter text-base font-medium text-white">
-              {title}
-            </h4>
-            <div className="bg-opacity-100 absolute inset-[-0.3] bg-black"></div>
+            {heading}
+            <div className="absolute inset-0 bg-black" />
           </div>
         ) : (
-          <>
-            <h4 className="leading-tighter text-base font-medium text-white">
-              {title}
-            </h4>
-            {links.length > 0 && (
-              <div className="-mt-0.5 ml-2 flex flex-row flex-wrap items-center gap-x-1 gap-y-1">
-                {links.map((link, index) => (
-                  <a
-                    key={index}
-                    rel={link.rel ?? "noopener"}
-                    target="_blank"
-                    href={link.href}
-                  >
-                    {React.createElement(link.icon, {
-                      className:
-                        "text-blue-100/80 hover:text-blue-300/80 hover:drop-shadow-glow_sm_2 transition duration-200 ease-in-out h-4 w-4 inline-block",
-                      "aria-hidden": "true",
-                    })}
-                  </a>
-                ))}
-              </div>
-            )}
-          </>
+          heading
         )}
+        {links.length > 0 ? (
+          <div className="-mt-0.5 ml-2 flex flex-row flex-wrap items-center gap-1">
+            {links.map(({ href, icon: Icon }) => (
+              <a
+                key={href}
+                href={href}
+                target="_blank"
+                aria-label={`${title} on ${new URL(href).hostname}`}
+              >
+                <Icon
+                  className="inline-block size-4 text-blue-100/80 transition duration-200 ease-in-out hover:text-blue-300/80 hover:drop-shadow-glow_sm_2"
+                  aria-hidden="true"
+                />
+              </a>
+            ))}
+          </div>
+        ) : null}
       </div>
-      <p className="text-xa leading-tighter mt-0.5 text-white">
-        {renderRedactedDescription(description)}
+      <p className="mt-0.5 text-xa leading-tighter">
+        {isRedacted ? redactBrackets(description) : description}
       </p>
     </div>
   );

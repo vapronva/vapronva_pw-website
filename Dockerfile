@@ -29,11 +29,8 @@ RUN pnpm install --frozen-lockfile
 
 COPY . .
 
-RUN --mount=type=secret,id=NODE_ENV \
-    --mount=type=secret,id=SENTRY_AUTH_TOKEN \
-    export NODE_ENV="$(cat /run/secrets/NODE_ENV)" \
-    SENTRY_AUTH_TOKEN="$(cat /run/secrets/SENTRY_AUTH_TOKEN)" && \
-    pnpm run build
+RUN --mount=type=secret,id=SENTRY_AUTH_TOKEN \
+    SENTRY_AUTH_TOKEN="$(cat /run/secrets/SENTRY_AUTH_TOKEN)" pnpm run build
 
 FROM base
 

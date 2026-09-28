@@ -1,27 +1,16 @@
-import InfoCard from "~/components/info-card";
+import Card from "~/components/card";
 
-interface LocationEducationProps {
-  glass?: boolean;
-}
-
-export default function LocationEducation({
-  glass = false,
-}: LocationEducationProps) {
+export default function LocationEducation() {
   return (
-    <InfoCard
+    <Card
       title="Place / Studies / Work"
-      backgroundImage="/images/idminebg/od-4ba7-12.jpeg"
-      shadowColor="shadow-od_4ba7.12/10"
-      glass={glass}
-      content={
-        <>
-          <p>
-            Omsk-born, now based in Saint Petersburg. UK and Germany exchange
-            alumni. SWE to ICT + Telecom Engineering{" "}
-            <span className="font-thin">(incomplete)</span>. SRE at Selectel.
-          </p>
-        </>
-      }
-    />
+      className="shadow-od_4ba7_12/10 [--card-photo:url(/images/idminebg/od-4ba7-12.jpeg)] sm:p-6"
+    >
+      <p>
+        Omsk-born, now based in Saint Petersburg. UK and Germany exchange
+        alumni. SWE to ICT + Telecom Engineering{" "}
+        <span className="font-thin">(incomplete)</span>. SRE at Selectel.
+      </p>
+    </Card>
   );
 }

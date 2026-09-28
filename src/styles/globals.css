@@ -1,27 +1,40 @@
-@import "tailwindcss";
+@import "tailwindcss" source("..");
 
-@config '../../tailwind.config.ts';
+@custom-variant glass (&:where([data-look="glass"] *));
+@custom-variant photo (&:where([data-look="photo"] *));
 
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
-  }
-}
+@theme inline {
+  --color-regal-blue: #243c5a;
+  --color-deep-regal-blue: #0e1825;
+  --color-deep-gray: #090c14;
+  --color-deep-slate: #080b16;
+  --color-mc_2f7c_4: #2e3d59;
+  --color-ba_b16c_1: #737373;
+  --color-el_82f7_4: #bfcdd9;
+  --color-el_82f7_7: #595659;
+  --color-el_82f7_9: #595959;
+  --color-od_4ba7_12: #a7c6d9;
+  --color-sh_a792_3: #445925;
 
-.glow-effect {
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  animation: glow 1.5s infinite alternate;
-}
+  --text-xa: 0.9rem;
+  --text-xn: 0.65rem;
+  --text-xd: 0.55rem;
 
-@keyframes glow {
-  from {
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-  }
-  to {
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
-  }
+  --leading-tighter: 1.075;
+  --leading-tightie: 1.15;
+
+  --drop-shadow-glow_sm:
+    0 0 4px rgb(255 255 255 / 0.25), 0 0 1px rgb(255 255 255 / 0.175);
+  --drop-shadow-glow_sm_2:
+    0 0 20px rgb(255 255 255 / 0.8), 0 0 4px rgb(255 255 255 / 0.45),
+    0 0 1px rgb(255 255 255 / 0.5);
+  --drop-shadow-glow_sm_4:
+    0 0 20px rgb(255 255 255 / 0.6), 0 0 4px rgb(255 255 255 / 0.3),
+    0 0 1px rgb(255 255 255 / 0.4);
+  --drop-shadow-glow_lg:
+    0 0 4px rgb(255 255 255 / 0.45), 0 0 1px rgb(255 255 255 / 0.175),
+    0 0 1px rgb(255 255 255 / 0.4);
+  --drop-shadow-glow_lg_2:
+    0 0 20px rgb(255 255 255 / 0.9), 0 0 4px rgb(255 255 255 / 0.55),
+    0 0 1px rgb(255 255 255 / 0.4);
 }
