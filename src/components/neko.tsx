@@ -186,7 +186,7 @@ export default function Neko({ speed }: { speed: number }) {
     <div
       ref={catRef}
       aria-hidden="true"
-      className="pointer-events-none fixed top-4 left-4 z-2147483647 size-8 bg-[url(/neko.gif)] bg-position-[-96px_-96px] [image-rendering:pixelated] motion-reduce:hidden"
+      className="pointer-events-none fixed top-4 left-4 z-2147483647 size-8 bg-[url(https://cdn.engineering/vapronva-pw/neko.gif)] bg-position-[-96px_-96px] [image-rendering:pixelated] motion-reduce:hidden"
     />
   );
 }

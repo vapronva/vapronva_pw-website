@@ -2,18 +2,18 @@ import Card from "~/components/card";
 
 export default function AboutSection() {
   return (
-    <Card className="max-w-5xl shadow-ba_b16c_1/10 [--card-photo:url(/images/idminebg/ba-b16c-1.jpeg)] sm:mx-auto sm:p-7">
+    <Card className="max-w-5xl shadow-ba_b16c_1/10 [--card-photo:url(https://cdn.engineering/vapronva-pw/images/idminebg/ba-b16c-1.jpeg)] sm:mx-auto sm:p-7">
       <p>
         <video
           muted
           autoPlay
           playsInline
-          poster="/images/pfp/new-2022-hkc-out.jpeg"
+          poster="https://cdn.engineering/vapronva-pw/images/pfp/new-2022-hkc-out.jpeg"
           aria-label="vapronva's avatar (2022)"
           className="float-right mb-1 ml-3 size-20 rounded-full sm:size-24"
         >
           <source
-            src="/videos/pfp-2022-hdred.mp4"
+            src="https://cdn.engineering/vapronva-pw/videos/pfp-2022-hdred.mp4"
             type="video/mp4"
             media="(dynamic-range: high)"
           />

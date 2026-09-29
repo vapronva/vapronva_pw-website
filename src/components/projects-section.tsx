@@ -194,7 +194,7 @@ const rightProjects = [
 
 export default function ProjectsSection() {
   return (
-    <Card className="mt-3 max-w-5xl shadow-el_82f7.4/10 [--card-photo:url(/images/idminebg/el-82f7-4.jpeg)] sm:mx-auto sm:mt-6 sm:p-7">
+    <Card className="mt-3 max-w-5xl shadow-el_82f7.4/10 [--card-photo:url(https://cdn.engineering/vapronva-pw/images/idminebg/el-82f7-4.jpeg)] sm:mx-auto sm:mt-6 sm:p-7">
       <div className="flex flex-col gap-2 sm:flex-row sm:gap-4">
         <div className="w-full divide-y divide-gray-500/40 sm:w-1/2">
           {leftProjects.map((project) => (

@@ -2,7 +2,7 @@ import Card from "~/components/card";
 
 export default function AdditionalInfo() {
   return (
-    <Card className="mt-3 max-w-5xl shadow-sh_a792.3/10 [--card-photo:url(/images/idminebg/sh-a792-3.jpeg)] sm:mx-auto sm:mt-6 sm:p-6">
+    <Card className="mt-3 max-w-5xl shadow-sh_a792.3/10 [--card-photo:url(https://cdn.engineering/vapronva-pw/images/idminebg/sh-a792-3.jpeg)] sm:mx-auto sm:mt-6 sm:p-6">
       <p>
         <a
           className="drop-shadow-glow_sm transition duration-200 ease-in-out hover:drop-shadow-glow_sm_2"
@@ -22,7 +22,7 @@ export default function AdditionalInfo() {
         . I am right-handed. I hear Laurel, not Yanny. My{" "}
         <a
           className="drop-shadow-glow_sm transition duration-200 ease-in-out hover:drop-shadow-glow_sm_2"
-          href="/images/pfp/original/new-2022-hkc-out.png"
+          href="https://cdn.engineering/vapronva-pw/images/pfp/original/new-2022-hkc-out.png"
           target="_blank"
         >
           profile pic

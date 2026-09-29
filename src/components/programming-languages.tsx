@@ -2,7 +2,7 @@ import Card from "~/components/card";
 
 export default function ProgrammingLanguages() {
   return (
-    <Card className="shadow-el_82f7.9/10 [--card-photo:url(/images/idminebg/el-82f7-9.jpeg)] sm:p-6">
+    <Card className="shadow-el_82f7.9/10 [--card-photo:url(https://cdn.engineering/vapronva-pw/images/idminebg/el-82f7-9.jpeg)] sm:p-6">
       <p>
         I write <span className="font-medium">Python</span>,{" "}
         <span className="font-medium">Go</span>, and{" "}
