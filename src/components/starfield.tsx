@@ -59,12 +59,21 @@ export default function Starfield() {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
     if (!canvas || !ctx) return;
+    const teardown = new AbortController();
     let width = 0;
     let height = 0;
     let stars: Star[] = [];
     let rafId = 0;
     let lastFrameAt = performance.now();
     let carryMs = 0;
+    const fitCanvas = () => {
+      const pixelRatio = Math.min(2, devicePixelRatio);
+      width = canvas.clientWidth;
+      height = canvas.clientHeight;
+      canvas.width = width * pixelRatio;
+      canvas.height = height * pixelRatio;
+      ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+    };
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
       for (const star of stars) {
@@ -95,13 +104,18 @@ export default function Starfield() {
       }
       draw();
     };
+    const watchPixelRatio = () =>
+      matchMedia(`(resolution: ${devicePixelRatio}dppx)`).addEventListener(
+        "change",
+        () => {
+          fitCanvas();
+          draw();
+          watchPixelRatio();
+        },
+        { once: true, signal: teardown.signal },
+      );
     const observer = new ResizeObserver(() => {
-      const dpr = Math.min(2, devicePixelRatio);
-      width = canvas.clientWidth;
-      height = canvas.clientHeight;
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      fitCanvas();
       stars = Array.from(
         { length: Math.max(80, Math.floor(width * height * STARS_PER_PX)) },
         () => spawnStar(width, Math.random() * height),
@@ -110,8 +124,10 @@ export default function Starfield() {
       canvas.style.opacity = "1";
     });
     observer.observe(canvas);
+    watchPixelRatio();
     if (!isReducedMotion) rafId = requestAnimationFrame(frame);
     return () => {
+      teardown.abort();
       observer.disconnect();
       cancelAnimationFrame(rafId);
     };

@@ -3,9 +3,9 @@ import SceneControls from "~/components/scene-controls";
 
 export default function Footer() {
   return (
-    <div className="mt-3 max-w-2xl sm:mx-auto sm:mt-6">
+    <footer className="mt-3 max-w-2xl sm:mx-auto sm:mt-6">
       <IncidentBadge />
-      <p className="text-center text-xs font-light text-white/40">
+      <p className="text-center text-xs font-light text-white/60">
         Inspired by{" "}
         <a
           href="https://kc.is.being.pet"
@@ -24,7 +24,7 @@ export default function Footer() {
         </a>{" "}
         personal websites. Thanks for being awesome! <SceneControls />
       </p>
-      <p className="mt-1.5 text-center text-xn font-light text-white/30">
+      <p className="mt-1.5 text-center text-xn font-light text-white/50">
         The{" "}
         <a href="https://git.horse/vapronva/vapronva-pw" target="_blank">
           website was built
@@ -110,6 +110,6 @@ export default function Footer() {
         </a>
         .
       </p>
-    </div>
+    </footer>
   );
 }

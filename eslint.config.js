@@ -1,31 +1,26 @@
 import nextPlugin from "@next/eslint-plugin-next";
+import { defineConfig } from "eslint/config";
 import reactHooks from "eslint-plugin-react-hooks";
 import tseslint from "typescript-eslint";
 
-const nextCoreWebVitals = nextPlugin.configs["core-web-vitals"];
-
-export default tseslint.config(
+export default defineConfig(
   {
     ignores: [".next", "next-env.d.ts"],
   },
-  nextCoreWebVitals,
+  nextPlugin.configs["core-web-vitals"],
   {
     files: ["**/*.ts", "**/*.tsx"],
     extends: [
-      ...tseslint.configs.recommended,
-      ...tseslint.configs.recommendedTypeChecked,
-      ...tseslint.configs.stylisticTypeChecked,
+      tseslint.configs.recommendedTypeChecked,
+      tseslint.configs.stylisticTypeChecked,
+      reactHooks.configs.flat.recommended,
     ],
-    plugins: {
-      "react-hooks": reactHooks,
-    },
     languageOptions: {
       parserOptions: {
         projectService: true,
       },
     },
     rules: {
-      ...reactHooks.configs.recommended.rules,
       "@typescript-eslint/array-type": "off",
       "@typescript-eslint/consistent-type-definitions": "off",
       "@typescript-eslint/consistent-type-imports": [
@@ -41,11 +36,6 @@ export default tseslint.config(
         "error",
         { checksVoidReturn: { attributes: false } },
       ],
-    },
-  },
-  {
-    linterOptions: {
-      reportUnusedDisableDirectives: true,
     },
   },
 );

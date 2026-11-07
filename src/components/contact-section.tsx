@@ -78,7 +78,7 @@ export default function ContactSection() {
       id="contact"
       className="mt-3 max-w-5xl shadow-mc_2f7c_4/10 [--card-photo:url(https://cdn.engineering/vapronva-pw/images/idminebg/mc-2f7c-4.jpeg)] sm:mx-auto sm:mt-6 sm:p-7"
     >
-      <div className="grid grid-cols-4 place-items-center gap-x-12 gap-y-2 sm:grid-cols-12 sm:gap-y-6">
+      <div className="grid grid-cols-4 place-items-center gap-x-12 gap-y-2 sm:grid-cols-6 sm:gap-y-6 lg:grid-cols-12">
         {socialLinks.map((link) => (
           <SocialLink key={link.name} {...link} />
         ))}

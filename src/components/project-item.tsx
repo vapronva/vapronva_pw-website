@@ -28,7 +28,7 @@ export default function ProjectItem({
   isRedacted = false,
 }: ProjectItemProps) {
   const heading = (
-    <h4 className="text-base leading-tighter font-medium">{title}</h4>
+    <h2 className="text-base leading-tighter font-medium">{title}</h2>
   );
   return (
     <div className="flex flex-col py-1">
@@ -42,7 +42,7 @@ export default function ProjectItem({
           heading
         )}
         {links.length > 0 ? (
-          <div className="-mt-0.5 ml-2 flex flex-row flex-wrap items-center gap-1">
+          <div className="-mt-0.5 ml-2 flex flex-row flex-wrap items-center gap-2">
             {links.map(({ href, icon: Icon }) => (
               <a
                 key={href}

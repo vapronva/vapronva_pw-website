@@ -71,6 +71,8 @@ const spriteSets = {
 
 type SpriteName = keyof typeof spriteSets;
 
+const MAX_BACKLOG_MS = 250;
+
 export default function Neko({ speed }: { speed: number }) {
   const catRef = useRef<HTMLDivElement>(null);
   const readSpeed = useEffectEvent(() => speed);
@@ -168,13 +170,16 @@ export default function Neko({ speed }: { speed: number }) {
       mousePosY = event.clientY;
     };
     document.addEventListener("mousemove", handleMouseMove);
-    let lastFrameAt = performance.now();
+    let lastTickAt = performance.now();
     let rafId = 0;
     const onAnimationFrame = (now: number) => {
       rafId = requestAnimationFrame(onAnimationFrame);
-      if (now - lastFrameAt < Math.max(16, 100 / readSpeed())) return;
-      lastFrameAt = now;
-      tick();
+      const tickIntervalMs = Math.max(1000 / 60, 100 / readSpeed());
+      lastTickAt = Math.max(lastTickAt, now - MAX_BACKLOG_MS);
+      while (now - lastTickAt >= tickIntervalMs) {
+        lastTickAt += tickIntervalMs;
+        tick();
+      }
     };
     rafId = requestAnimationFrame(onAnimationFrame);
     return () => {

@@ -52,7 +52,7 @@ const leftProjects = [
   {
     title: "otkat",
     description:
-      "Firmware release control plane for ESP32 devices with canaries, telemetry, and rollback quarantine",
+      "Firmware release control plane for ESP32 devices with canaries, telemetry, and rollback quarantine.",
     links: [{ href: "https://git.horse/vapronva/otkat", icon: SiGitlab }],
   },
   {

@@ -1,15 +1,17 @@
+import HandoffLink from "~/components/handoff-link";
+
 export default function Banner() {
   return (
     <div className="bg-linear-to-r from-regal-blue to-cyan-900 p-2 sm:p-1.5">
       <div className="flex items-center justify-center text-center leading-tightie">
         <p className="text-xn font-extralight text-white/90">
           Pssst… My somewhat professional website is at{" "}
-          <a
+          <HandoffLink
             className="drop-shadow-glow_lg transition duration-200 ease-in-out hover:drop-shadow-glow_lg_2"
-            href="https://vapronva.ru"
+            href="https://vapronva.ru/en"
           >
             vapronva.ru
-          </a>{" "}
+          </HandoffLink>{" "}
           Also, I self-host tons of stuff at{" "}
           <a
             className="drop-shadow-glow_lg transition duration-200 ease-in-out hover:drop-shadow-glow_lg_2"

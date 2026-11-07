@@ -1,20 +1,8 @@
 import "~/styles/globals.css";
 
 import { type Metadata } from "next";
-import localFont from "next/font/local";
 
-const inter = localFont({
-  src: [
-    {
-      path: "fonts/inter/variable/4.1/InterVariable.woff2",
-      style: "normal",
-    },
-    {
-      path: "fonts/inter/variable/4.1/InterVariable-Italic.woff2",
-      style: "italic",
-    },
-  ],
-});
+import { inter, interItalic } from "~/app/fonts/inter";
 
 export const metadata: Metadata = {
   title: "@vapronva — personal website",
@@ -30,13 +18,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en" className={`${inter.className} ${interItalic.variable}`}>
       <body>{children}</body>
     </html>
   );

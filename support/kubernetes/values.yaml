@@ -39,3 +39,10 @@ ckic:
     - hosts:
         - vapronva.pw
       upstream: frontend-vapronvapw:3000
+    - hosts:
+        - vapronva.ru
+      upstream: frontend-vapronvapw:3000
+      extraDirectives: |
+        handle /.well-known/webfinger {
+          respond `{"subject":"acct:${email}","links":[{"rel":"http://openid.net/specs/connect/1.0/issuer","href":"https://auth.cmld.ru"}]}`
+        }

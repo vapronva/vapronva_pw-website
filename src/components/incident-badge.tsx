@@ -1,6 +1,11 @@
 "use client";
 
-import { CircleCheckBig, LoaderCircle, TriangleAlert } from "lucide-react";
+import {
+  CircleCheckBig,
+  CircleDashed,
+  TriangleAlert,
+  Wrench,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 
 const STATUS_URL = "https://status.cmld.ru/api/v1/summary";
@@ -9,7 +14,7 @@ const TIMEOUT_MS = 10_000;
 
 const badges = {
   loading: {
-    icon: <LoaderCircle className="size-4 animate-spin" />,
+    icon: <CircleDashed className="size-4" />,
     label: "Checking status…",
     className:
       "glass:text-white/90 glass:ring-white/10 photo:bg-gray-800 photo:text-gray-300 photo:shadow-xs",
@@ -26,6 +31,12 @@ const badges = {
     className:
       "glass:text-green-300 glass:ring-green-500/30 photo:bg-green-900/10 photo:text-green-400",
   },
+  maintenance: {
+    icon: <Wrench className="size-4" />,
+    label: "Maintenance in progress",
+    className:
+      "glass:text-sky-300 glass:ring-sky-500/30 photo:bg-sky-900/10 photo:text-sky-400",
+  },
   disrupted: {
     icon: <TriangleAlert className="size-4" />,
     label: "Service disruption detected",
@@ -36,19 +47,31 @@ const badges = {
 
 type Status = keyof typeof badges;
 
+type Summary = {
+  ongoing_incidents: unknown[];
+  in_progress_maintenances: unknown[];
+};
+
+function isSummary(value: unknown): value is Summary {
+  return (
+    value instanceof Object &&
+    "ongoing_incidents" in value &&
+    Array.isArray(value.ongoing_incidents) &&
+    "in_progress_maintenances" in value &&
+    Array.isArray(value.in_progress_maintenances)
+  );
+}
+
 async function fetchStatus(): Promise<Status> {
   const response = await fetch(STATUS_URL, {
     signal: AbortSignal.timeout(TIMEOUT_MS),
   });
   if (!response.ok) return "error";
   const summary: unknown = await response.json();
-  if (
-    summary instanceof Object &&
-    "ongoing_incidents" in summary &&
-    Array.isArray(summary.ongoing_incidents)
-  )
-    return summary.ongoing_incidents.length === 0 ? "operational" : "disrupted";
-  return "error";
+  if (!isSummary(summary)) return "error";
+  if (summary.ongoing_incidents.length > 0) return "disrupted";
+  if (summary.in_progress_maintenances.length > 0) return "maintenance";
+  return "operational";
 }
 
 export default function IncidentBadge() {
@@ -70,7 +93,7 @@ export default function IncidentBadge() {
   }, []);
   const badge = badges[status];
   return (
-    <div className="flex justify-center p-4 text-sm">
+    <div aria-live="polite" className="flex justify-center p-4 text-sm">
       <a
         href="https://status.cmld.ru"
         target="_blank"

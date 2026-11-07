@@ -7,13 +7,13 @@ export default function SceneControls() {
   return (
     <>
       <button
-        className="drop-shadow-glow_sm transition duration-200 ease-in-out hover:drop-shadow-glow_lg_2 focus:outline-hidden"
+        className="drop-shadow-glow_sm transition duration-200 ease-in-out hover:drop-shadow-glow_lg_2"
         onClick={speedUpNeko}
       >
         Meow :)
       </button>{" "}
       <button
-        className="drop-shadow-glow_sm transition duration-200 ease-in-out hover:drop-shadow-glow_lg_2 focus:outline-hidden"
+        className="drop-shadow-glow_sm transition duration-200 ease-in-out hover:drop-shadow-glow_lg_2"
         onClick={toggleStarfield}
       >
         {isStarry ? "Sparks!" : "Stars!"}

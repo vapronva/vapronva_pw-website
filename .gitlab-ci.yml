@@ -15,8 +15,6 @@ include:
       image: frontend
       tags: latest,$CI_COMMIT_SHA
       build_args: --secret id=SENTRY_AUTH_TOKEN,type=env
-      rules_changes:
-        - "**/*"
   - component: $CI_SERVER_FQDN/ci/helmfile/deploy@2
     inputs:
       working_dir: support/kubernetes
