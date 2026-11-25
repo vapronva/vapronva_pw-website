@@ -1,6 +1,6 @@
 {
   "name": "vapronvapw-web",
-  "version": "3.4.1",
+  "version": "3.4.2",
   "private": true,
   "type": "module",
   "scripts": {
@@ -16,9 +16,9 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx,json,cjs,mjs,css,yml,yaml}\" --cache"
   },
   "dependencies": {
-    "@icons-pack/react-simple-icons": "^13.15.1",
-    "@sentry/nextjs": "^11.12.0",
-    "lucide-react": "^1.73.0",
+    "@icons-pack/react-simple-icons": "^13.16.0",
+    "@sentry/nextjs": "^11.17.0",
+    "lucide-react": "^1.79.0",
     "next": "^16.4.6",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
@@ -36,6 +36,6 @@
     "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwindcss": "^4.3.5",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.72.2"
+    "typescript-eslint": "^8.74.0"
   }
 }
