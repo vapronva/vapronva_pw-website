@@ -10,17 +10,17 @@ export default function Footer() {
         <a
           href="https://kc.is.being.pet"
           target="_blank"
-          className="drop-shadow-glow_sm transition duration-200 ease-in-out hover:drop-shadow-glow_lg_2"
+          className="drop-shadow-glow_sm transition hover:drop-shadow-glow_lg_2"
         >
-          kc&apos;s
+          kc's
         </a>{" "}
         and{" "}
         <a
           href="https://rferee.dev"
           target="_blank"
-          className="drop-shadow-glow_sm transition duration-200 ease-in-out hover:drop-shadow-glow_lg_2"
+          className="drop-shadow-glow_sm transition hover:drop-shadow-glow_lg_2"
         >
-          rferee&apos;s
+          rferee's
         </a>{" "}
         personal websites. Thanks for being awesome! <SceneControls />
       </p>

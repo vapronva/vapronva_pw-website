@@ -30,6 +30,7 @@
   --text-xh: 0.35rem;
   --leading-tighter: 1.075;
   --leading-tightie: 1.15;
+  --default-transition-duration: 200ms;
   --drop-shadow-glow_sm:
     0 0 4px rgb(255 255 255 / 0.25), 0 0 1px rgb(255 255 255 / 0.175);
   --drop-shadow-glow_sm_2:

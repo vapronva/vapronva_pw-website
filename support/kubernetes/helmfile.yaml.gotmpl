@@ -11,7 +11,7 @@ helmDefaults:
 
 repositories:
   - name: cmld
-    url: {{ env "CHART_REPO_URL" | default (printf "%s/api/v4/projects/149/packages/helm/stable" (requiredEnv "CI_SERVER_URL")) }}
+    url: {{ or (env "CHART_REPO_URL") (printf "%s/api/v4/projects/149/packages/helm/stable" (requiredEnv "CI_SERVER_URL")) }}
 
 releases:
   - name: vapronvapw-frontend

@@ -9,7 +9,6 @@ export const metadata: Metadata = {
   description:
     "hi, there! so… here you can discover a bit about me, how to get in touch, what i'm up to, and more.",
   openGraph: {
-    title: "@vapronva — personal website",
     description:
       "hi there! hope you're doing well… you've stumbled upon my little corner of the web where you can discover a bit about me, how to get in touch, what i'm up to, and more. enjoy!",
     url: "https://vapronva.pw/",

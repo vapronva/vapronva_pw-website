@@ -1,24 +1,25 @@
 "use client";
 
+function toggleTheme() {
+  const root = document.documentElement;
+  const isDark =
+    root.dataset.theme === "dark" ||
+    (!root.dataset.theme && matchMedia("(prefers-color-scheme: dark)").matches);
+  root.dataset.theme = isDark ? "light" : "dark";
+  try {
+    localStorage.theme = root.dataset.theme;
+  } catch {}
+}
+
 export default function ThemeToggle({ label }: { label: string }) {
   return (
     <button
       type="button"
       aria-label={label}
       onClick={() => {
-        const root = document.documentElement;
-        const dark =
-          root.dataset.theme === "dark" ||
-          (!root.dataset.theme &&
-            matchMedia("(prefers-color-scheme: dark)").matches);
-        const apply = () => {
-          root.dataset.theme = dark ? "light" : "dark";
-          try {
-            localStorage.theme = root.dataset.theme;
-          } catch {}
-        };
-        if (document.startViewTransition) document.startViewTransition(apply);
-        else apply();
+        if (document.startViewTransition)
+          document.startViewTransition(toggleTheme);
+        else toggleTheme();
       }}
       className="rounded-lg bg-cv-chip p-1.75 text-cv-accent hover:opacity-75"
     >

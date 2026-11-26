@@ -46,7 +46,7 @@ export default function Scene({ children }: { children: ReactNode }) {
       <div
         id="about"
         data-look={isStarry ? "glass" : "photo"}
-        className="relative flex flex-1 flex-col justify-center overflow-hidden bg-linear-to-r from-deep-slate via-deep-regal-blue to-deep-gray px-3 py-3 sm:px-0 sm:py-6"
+        className="relative flex flex-1 flex-col justify-center overflow-hidden bg-linear-to-r from-deep-slate via-deep-regal-blue to-deep-gray p-3 sm:px-0 sm:py-6"
       >
         {isStarry ? <Starfield /> : null}
         <div className="relative z-10">{children}</div>

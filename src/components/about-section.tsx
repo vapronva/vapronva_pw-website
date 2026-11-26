@@ -3,7 +3,7 @@ import Magic from "~/components/magic";
 
 export default function AboutSection() {
   return (
-    <Card className="max-w-5xl shadow-ba_b16c_1/10 [--card-photo:url(https://cdn.engineering/vapronva-pw/images/idminebg/ba-b16c-1.jpeg)] sm:mx-auto sm:p-7">
+    <Card className="shadow-ba_b16c_1/10 [--card-photo:url(https://cdn.engineering/vapronva-pw/images/idminebg/ba-b16c-1.jpeg)] sm:p-7">
       <p>
         <Magic name="avatar">
           <video
@@ -21,10 +21,9 @@ export default function AboutSection() {
             />
           </video>
         </Magic>
-        I'm <span className="font-medium">Vladimir</span>{" "}
+        I'm <b>Vladimir</b>{" "}
         <span className="font-extralight">
-          (&quot;
-          <span className="font-medium">vapronva</span>&quot; online)
+          ("<b>vapronva</b>" online)
         </span>
         , a 23-year-old nerdy guy from Russia. I do the whole DevSecGitNetMLOps{" "}
         <span className="text-xd">(🤡)</span> thing, plus networking,

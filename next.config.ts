@@ -1,4 +1,4 @@
-import type { NextConfig } from "next";
+import { type NextConfig } from "next";
 import { withSentryConfig } from "@sentry/nextjs/config";
 
 const config: NextConfig = {
@@ -20,7 +20,7 @@ const config: NextConfig = {
     },
   },
   allowedDevOrigins: ["10.200.0.20"],
-  redirects: async () => [
+  redirects: () => [
     {
       source: "/",
       has: [{ type: "host", value: "vapronva\\.ru" }],

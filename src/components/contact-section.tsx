@@ -50,21 +50,9 @@ const socialLinks = [
     icon: SiSteam,
     name: "Steam",
   },
-  {
-    href: "https://github.com/vapronva",
-    icon: SiGithub,
-    name: "GitHub",
-  },
-  {
-    href: "https://git.horse/vapronva",
-    icon: SiGitlab,
-    name: "GitLab",
-  },
-  {
-    href: "https://last.fm/user/vprw",
-    icon: SiLastdotfm,
-    name: "Last.fm",
-  },
+  { href: "https://github.com/vapronva", icon: SiGithub, name: "GitHub" },
+  { href: "https://git.horse/vapronva", icon: SiGitlab, name: "GitLab" },
+  { href: "https://last.fm/user/vprw", icon: SiLastdotfm, name: "Last.fm" },
   {
     href: "https://bsky.app/profile/vapronva.ru",
     icon: SiBluesky,
@@ -76,7 +64,7 @@ export default function ContactSection() {
   return (
     <Card
       id="contact"
-      className="mt-3 max-w-5xl shadow-mc_2f7c_4/10 [--card-photo:url(https://cdn.engineering/vapronva-pw/images/idminebg/mc-2f7c-4.jpeg)] sm:mx-auto sm:mt-6 sm:p-7"
+      className="mt-3 shadow-mc_2f7c_4/10 [--card-photo:url(https://cdn.engineering/vapronva-pw/images/idminebg/mc-2f7c-4.jpeg)] sm:mt-6 sm:p-7"
     >
       <div className="grid grid-cols-4 place-items-center gap-x-12 gap-y-2 sm:grid-cols-6 sm:gap-y-6 lg:grid-cols-12">
         {socialLinks.map((link) => (

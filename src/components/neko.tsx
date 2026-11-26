@@ -113,26 +113,17 @@ export default function Neko({ speed }: { speed: number }) {
         idleAnimation =
           choices[Math.floor(Math.random() * choices.length)] ?? null;
       }
-      switch (idleAnimation) {
-        case "sleeping":
-          if (idleAnimationFrame < 8) {
-            setSprite("tired", 0);
-            break;
-          }
-          setSprite("sleeping", Math.floor(idleAnimationFrame / 4));
-          if (idleAnimationFrame > 192) resetIdleAnimation();
-          break;
-        case "scratchWallN":
-        case "scratchWallS":
-        case "scratchWallE":
-        case "scratchWallW":
-        case "scratchSelf":
-          setSprite(idleAnimation, idleAnimationFrame);
-          if (idleAnimationFrame > 9) resetIdleAnimation();
-          break;
-        default:
-          setSprite("idle", 0);
-          return;
+      if (idleAnimation === null) {
+        setSprite("idle", 0);
+        return;
+      }
+      if (idleAnimation === "sleeping") {
+        if (idleAnimationFrame < 8) setSprite("tired", 0);
+        else setSprite("sleeping", Math.floor(idleAnimationFrame / 4));
+        if (idleAnimationFrame > 192) resetIdleAnimation();
+      } else {
+        setSprite(idleAnimation, idleAnimationFrame);
+        if (idleAnimationFrame > 9) resetIdleAnimation();
       }
       idleAnimationFrame += 1;
     };
