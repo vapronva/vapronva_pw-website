@@ -1,6 +1,6 @@
 import "~/styles/globals.css";
 
-import { type Metadata } from "next";
+import { type Metadata, type Viewport } from "next";
 
 import { inter, interItalic } from "~/app/fonts/inter";
 
@@ -18,10 +18,15 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = { colorScheme: "dark" };
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.className} ${interItalic.variable}`}>
-      <body>{children}</body>
+    <html
+      lang="en"
+      className={`${inter.className} ${interItalic.variable} bg-deep-slate`}
+    >
+      <body className="flex min-h-dvh flex-col">{children}</body>
     </html>
   );
 }

@@ -5,16 +5,22 @@ import {
   createContext,
   startTransition,
   useLayoutEffect,
+  useRef,
   useState,
   ViewTransition,
   type MouseEventHandler,
   type ReactNode,
 } from "react";
-import { flushSync } from "react-dom";
+import { flushSync, preconnect } from "react-dom";
 
 const REVEAL_MS = 800;
 
-type Departure = { x: number; y: number };
+type Departure = {
+  x: number;
+  y: number;
+  fallbackTimer: number;
+  leave: () => void;
+};
 
 export const HandoffContext = createContext<
   MouseEventHandler<HTMLAnchorElement> | undefined
@@ -35,6 +41,7 @@ export default function Handoff({
   children: ReactNode;
 }) {
   const [departure, setDeparture] = useState<Departure | null>(null);
+  const isDeparting = useRef(false);
   useLayoutEffect(() => {
     if (departure) scrollTo(0, 0);
   }, [departure]);
@@ -51,26 +58,48 @@ export default function Handoff({
               !event.altKey;
             if (!isPlainClick || !canAnimate()) return;
             event.preventDefault();
+            if (isDeparting.current) return;
+            isDeparting.current = true;
             const { href } = event.currentTarget;
             const { x, y, width, height } =
               event.currentTarget.getBoundingClientRect();
+            preconnect(href);
             const abandon = new AbortController();
+            let hasLeft = false;
+            const leave = () => {
+              if (hasLeft || abandon.signal.aborted) return;
+              hasLeft = true;
+              if (process.env.NODE_ENV === "development") return;
+              location.assign(href);
+            };
             const stay = () => {
               abandon.abort();
+              isDeparting.current = false;
               flushSync(() => setDeparture(null));
+              Array.from(document.links)
+                .find((link) => link.href === href)
+                ?.focus();
             };
             addEventListener("pagehide", stay, { signal: abandon.signal });
+            addEventListener(
+              "keydown",
+              (keyEvent) => {
+                if (keyEvent.key === "Escape") stay();
+              },
+              { signal: abandon.signal },
+            );
             window.navigation?.addEventListener("navigateerror", stay, {
               signal: abandon.signal,
             });
-            setTimeout(() => {
-              if (abandon.signal.aborted) return;
-              if (process.env.NODE_ENV === "development") return;
-              location.assign(href);
-            }, REVEAL_MS);
+            const fallbackTimer = window.setTimeout(leave, REVEAL_MS);
             startTransition(() => {
               addTransitionType("handoff");
-              setDeparture({ x: x + width / 2, y: y + height / 2 });
+              setDeparture({
+                x: x + width / 2,
+                y: y + height / 2,
+                fallbackTimer,
+                leave,
+              });
             });
           }}
         >
@@ -84,7 +113,8 @@ export default function Handoff({
       enter="handoff"
       default="none"
       onEnter={(instance) => {
-        const { x, y } = departure;
+        const { x, y, fallbackTimer, leave } = departure;
+        clearTimeout(fallbackTimer);
         const radius = Math.hypot(
           Math.max(x, innerWidth - x),
           Math.max(y, innerHeight - y),
@@ -98,10 +128,11 @@ export default function Handoff({
           },
           { duration: REVEAL_MS, easing: "cubic-bezier(0.4, 0, 0.2, 1)" },
         );
+        void reveal.finished.then(leave, leave);
         return () => reveal.cancel();
       }}
     >
-      {to}
+      <div inert>{to}</div>
     </ViewTransition>
   );
 }

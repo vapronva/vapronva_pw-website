@@ -7,7 +7,7 @@ export default function SceneControls() {
   return (
     <>
       <button
-        className="drop-shadow-glow_sm transition duration-200 ease-in-out hover:drop-shadow-glow_lg_2"
+        className="drop-shadow-glow_sm transition duration-200 ease-in-out hover:drop-shadow-glow_lg_2 motion-reduce:hidden"
         onClick={speedUpNeko}
       >
         Meow :)

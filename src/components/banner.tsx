@@ -11,8 +11,8 @@ export default function Banner() {
             href="https://vapronva.ru/en"
           >
             vapronva.ru
-          </HandoffLink>{" "}
-          Also, I self-host tons of stuff at{" "}
+          </HandoffLink>
+          . Also, I self-host tons of stuff at{" "}
           <a
             className="drop-shadow-glow_lg transition duration-200 ease-in-out hover:drop-shadow-glow_lg_2"
             href="https://docker.house"

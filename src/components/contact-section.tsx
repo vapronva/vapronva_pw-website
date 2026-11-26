@@ -43,7 +43,7 @@ const socialLinks = [
   {
     href: "https://peertube.vapronva.pw/@vprw",
     icon: SiPeertube,
-    name: "Peertube",
+    name: "PeerTube",
   },
   {
     href: "https://steamcommunity.com/profiles/76561199227681806/",

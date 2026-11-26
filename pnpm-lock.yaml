@@ -12,13 +12,13 @@ importers:
         version: 13.16.0(react@19.3.1)
       "@sentry/nextjs":
         specifier: ^11.17.0
-        version: 11.17.0(next@16.4.6(@babel/core@7.29.13)(@opentelemetry/api@1.10.0)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)
+        version: 11.17.0(next@16.4.6(@babel/core@7.29.13)(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)
       lucide-react:
-        specifier: ^1.79.0
-        version: 1.79.0(@types/react@19.3.0)(react@19.3.1)
+        specifier: ^1.80.0
+        version: 1.80.0(@types/react@19.3.2)(react@19.3.1)
       next:
         specifier: ^16.4.6
-        version: 16.4.6(@babel/core@7.29.13)(@opentelemetry/api@1.10.0)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+        version: 16.4.6(@babel/core@7.29.13)(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       react:
         specifier: ^19.3.1
         version: 19.3.1
@@ -33,14 +33,14 @@ importers:
         specifier: ^4.3.5
         version: 4.3.5
       "@types/node":
-        specifier: ^26.6.6
-        version: 26.6.6
+        specifier: ^26.6.10
+        version: 26.6.10
       "@types/react":
-        specifier: ^19.3.0
-        version: 19.3.0
+        specifier: ^19.3.2
+        version: 19.3.2
       "@types/react-dom":
         specifier: ^19.3.0
-        version: 19.3.0(@types/react@19.3.0)
+        version: 19.3.0(@types/react@19.3.2)
       eslint:
         specifier: ^10.15.0
         version: 10.15.0(jiti@2.7.0)
@@ -1611,11 +1611,11 @@ packages:
         tarball: https://linux.horse/npm/@types%2Fesrecurse/-/esrecurse-4.3.1.tgz,
       }
 
-  "@types/estree@1.0.10":
+  "@types/estree@1.0.11":
     resolution:
       {
-        integrity: sha512-lTyOMnOcmRBzdCv6/4zUZCrEhV0xrqQiUZBZtVcbmLHBXKLnN8q89v/wKRF/Q0HbwVsqbIG3o5HDoFl9sduM+g==,
-        tarball: https://linux.horse/npm/@types%2Festree/-/estree-1.0.10.tgz,
+        integrity: sha512-YBdNe5JcjYR0sPhJW1QIeRCmI11YhYvaRuGCs9+WCeTTb+Yhb2BE2XMe5/wAqF10FK5g3+q1PDhQABfT7aX0gg==,
+        tarball: https://linux.horse/npm/@types%2Festree/-/estree-1.0.11.tgz,
       }
 
   "@types/json-schema@7.0.15":
@@ -1625,11 +1625,11 @@ packages:
         tarball: https://linux.horse/npm/@types%2Fjson-schema/-/json-schema-7.0.15.tgz,
       }
 
-  "@types/node@26.6.6":
+  "@types/node@26.6.10":
     resolution:
       {
-        integrity: sha512-MzQj+8Kx3XI40OmUAE6Qoh58ZMNstNNMwn2nfd3qWsfe7nDNSqJNzes4njhz6AHwrSHOffSLwXU6yb474Q4aog==,
-        tarball: https://linux.horse/npm/@types%2Fnode/-/node-26.6.6.tgz,
+        integrity: sha512-WJuPHoGB8WNQuTksNF7SOQpnH02PXeDYz4iueWbBT6/hTWnShY5F3T/hoJA3fY9+uYReDZ7pyTKKx83jQa7aGg==,
+        tarball: https://linux.horse/npm/@types%2Fnode/-/node-26.6.10.tgz,
       }
 
   "@types/react-dom@19.3.0":
@@ -1641,11 +1641,11 @@ packages:
     peerDependencies:
       "@types/react": ^19.3.0
 
-  "@types/react@19.3.0":
+  "@types/react@19.3.2":
     resolution:
       {
-        integrity: sha512-N0rFCuH9YoxG9/m61l9MfpJKfmLOVU0em7ipIz6TRgSSkvReLB9vL85GB+yr8Bs5leqpvg96JSwF4ZS1s4viQg==,
-        tarball: https://linux.horse/npm/@types%2Freact/-/react-19.3.0.tgz,
+        integrity: sha512-0QJbb58RxWJL3VAa5tvk7QhJamz0S+MpFL2xDuF/+THRR+kldyhPjRZ1iwvK45AEHZ1BVGS3otPsl7QlNVRizQ==,
+        tarball: https://linux.horse/npm/@types%2Freact/-/react-19.3.2.tgz,
       }
 
   "@typescript-eslint/eslint-plugin@8.74.0":
@@ -1816,10 +1816,10 @@ packages:
         integrity: sha512-60cyAOytib/OzBw1JNSoSV/boK1AtHryDIjvVBk7XbN4ugfkM3+Sry7fEjNgPMGgOjuaZPAp8ruZ0Cxafwyq9g==,
       }
 
-  caniuse-lite@1.0.30001827:
+  caniuse-lite@1.0.30001828:
     resolution:
       {
-        integrity: sha512-YWEDr46gSO81M8w6uPbaIy4++IXsirx2asUqvllNiD4BPf75ibxclUjWEqp8ObCenRv+UM2n5Y8xuRPT8V8FrQ==,
+        integrity: sha512-7MWeT+3DlrpuDybTWHl4Zb1Z80Z1fLLnOXuBjDXebzDVcqnEWUlV8JcbASg8B8BhcW8QT2UiR1KAtzYFIZHZYA==,
       }
 
   client-only@0.0.1:
@@ -1885,10 +1885,10 @@ packages:
       }
     engines: { node: ">=12" }
 
-  electron-to-chromium@1.5.493:
+  electron-to-chromium@1.5.494:
     resolution:
       {
-        integrity: sha512-/Wto2sKd0EpepzMqwSP2il2TNc+rnBDF6k1poCvhRKpaSSD4sLGRBE+FydqHs2QwcW9cXKLVDqnauzJy1oByYw==,
+        integrity: sha512-Tph7ohL4Xc0ft3DXElYEIVTmPI3H0MtPCTdgtz5AwWGZG6q+vMiT3IzJ3RJX/HJQ8pYzeimQyvi6SsBTOS0nyQ==,
       }
 
   enhanced-resolve@5.27.0:
@@ -2151,10 +2151,10 @@ packages:
       }
     engines: { node: ">= 4" }
 
-  ignore@7.0.16:
+  ignore@7.0.17:
     resolution:
       {
-        integrity: sha512-52N+Y4HRMOJmbLmr+DqO4iSRyyB7N52gm7PWCT6h0p978+oKbqHCB7gIJIwZvBUsjlSdWbrBFqUSmIFNZMpn0A==,
+        integrity: sha512-0c3zcBRlWmcKhcIQWckzkYncJRv5HHB8O32wO/FcWL8DDXWDJgiEF6SX9ThbTv5h/eZ+xJK+VvDjjQ+cQJhp3Q==,
       }
     engines: { node: ">= 4" }
 
@@ -2382,10 +2382,10 @@ packages:
         integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==,
       }
 
-  lucide-react@1.79.0:
+  lucide-react@1.80.0:
     resolution:
       {
-        integrity: sha512-MDHKxzUobPRyQgt4hHO1z+pUQJKYMvenh8qw+ndWQE0Wg+Hbjli/ZrkZXBGmRBrMvvqDRjkmQj0Z5RbeL/ogNw==,
+        integrity: sha512-f9cQkUMFp2ZrOek9FucpRqQVI67gT09clXcHs3yCvdhJnsK4RW4og/rqoC0YAHd6FV/GPkeiIR3Rdxr2pPRwHA==,
       }
     peerDependencies:
       "@types/react": "*"
@@ -3357,7 +3357,7 @@ snapshots:
 
   "@rollup/pluginutils@5.5.1(rollup@4.68.8)":
     dependencies:
-      "@types/estree": 1.0.10
+      "@types/estree": 1.0.11
       estree-walker: 2.0.2
       picomatch: 4.0.7
     optionalDependencies:
@@ -3486,7 +3486,7 @@ snapshots:
     dependencies:
       "@sentry/core": 11.17.0
 
-  "@sentry/nextjs@11.17.0(next@16.4.6(@babel/core@7.29.13)(@opentelemetry/api@1.10.0)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)":
+  "@sentry/nextjs@11.17.0(next@16.4.6(@babel/core@7.29.13)(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(react@19.3.1)":
     dependencies:
       "@opentelemetry/api": 1.10.0
       "@rollup/plugin-commonjs": 28.0.1(rollup@4.68.8)
@@ -3501,7 +3501,7 @@ snapshots:
       "@sentry/server-runtime-injection": 11.17.0
       "@sentry/server-utils": 11.17.0
       "@sentry/vercel-edge": 11.17.0
-      next: 16.4.6(@babel/core@7.29.13)(@opentelemetry/api@1.10.0)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      next: 16.4.6(@babel/core@7.29.13)(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       rollup: 4.68.8
       stacktrace-parser: 0.1.11
     transitivePeerDependencies:
@@ -3640,19 +3640,19 @@ snapshots:
 
   "@types/esrecurse@4.3.1": {}
 
-  "@types/estree@1.0.10": {}
+  "@types/estree@1.0.11": {}
 
   "@types/json-schema@7.0.15": {}
 
-  "@types/node@26.6.6":
+  "@types/node@26.6.10":
     dependencies:
       undici-types: 8.9.0
 
-  "@types/react-dom@19.3.0(@types/react@19.3.0)":
+  "@types/react-dom@19.3.0(@types/react@19.3.2)":
     dependencies:
-      "@types/react": 19.3.0
+      "@types/react": 19.3.2
 
-  "@types/react@19.3.0":
+  "@types/react@19.3.2":
     dependencies:
       csstype: 3.2.4
 
@@ -3665,7 +3665,7 @@ snapshots:
       "@typescript-eslint/utils": 8.74.0(eslint@10.15.0(jiti@2.7.0))(typescript@6.0.3)
       "@typescript-eslint/visitor-keys": 8.74.0
       eslint: 10.15.0(jiti@2.7.0)
-      ignore: 7.0.16
+      ignore: 7.0.17
       natural-compare: 1.4.0
       ts-api-utils: 2.5.0(typescript@6.0.3)
       typescript: 6.0.3
@@ -3779,8 +3779,8 @@ snapshots:
   browserslist@4.29.6:
     dependencies:
       baseline-browser-mapping: 2.11.39
-      caniuse-lite: 1.0.30001827
-      electron-to-chromium: 1.5.493
+      caniuse-lite: 1.0.30001828
+      electron-to-chromium: 1.5.494
       node-releases: 2.0.65
       update-browserslist-db: 1.4.0(browserslist@4.29.6)
 
@@ -3792,7 +3792,7 @@ snapshots:
       keyv: 5.6.0
       qified: 0.10.1
 
-  caniuse-lite@1.0.30001827: {}
+  caniuse-lite@1.0.30001828: {}
 
   client-only@0.0.1: {}
 
@@ -3818,7 +3818,7 @@ snapshots:
 
   dotenv@17.4.2: {}
 
-  electron-to-chromium@1.5.493: {}
+  electron-to-chromium@1.5.494: {}
 
   enhanced-resolve@5.27.0:
     dependencies:
@@ -3843,7 +3843,7 @@ snapshots:
   eslint-scope@9.1.2:
     dependencies:
       "@types/esrecurse": 4.3.1
-      "@types/estree": 1.0.10
+      "@types/estree": 1.0.11
       esrecurse: 4.3.0
       estraverse: 5.3.0
 
@@ -3862,7 +3862,7 @@ snapshots:
       "@humanfs/node": 0.16.8
       "@humanwhocodes/module-importer": 1.0.1
       "@humanwhocodes/retry": 0.4.3
-      "@types/estree": 1.0.10
+      "@types/estree": 1.0.11
       ajv: 6.15.0
       cross-spawn: 7.0.6
       debug: 4.4.3
@@ -3988,7 +3988,7 @@ snapshots:
 
   ignore@5.3.2: {}
 
-  ignore@7.0.16: {}
+  ignore@7.0.17: {}
 
   imurmurhash@0.1.4: {}
 
@@ -4002,7 +4002,7 @@ snapshots:
 
   is-reference@1.2.1:
     dependencies:
-      "@types/estree": 1.0.10
+      "@types/estree": 1.0.11
 
   isexe@2.0.0: {}
 
@@ -4086,11 +4086,11 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  lucide-react@1.79.0(@types/react@19.3.0)(react@19.3.1):
+  lucide-react@1.80.0(@types/react@19.3.2)(react@19.3.1):
     dependencies:
       react: 19.3.1
     optionalDependencies:
-      "@types/react": 19.3.0
+      "@types/react": 19.3.2
 
   magic-string@0.30.21:
     dependencies:
@@ -4120,12 +4120,12 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  next@16.4.6(@babel/core@7.29.13)(@opentelemetry/api@1.10.0)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1):
+  next@16.4.6(@babel/core@7.29.13)(@opentelemetry/api@1.10.0)(@types/node@26.6.10)(react-dom@19.3.1(react@19.3.1))(react@19.3.1):
     dependencies:
       "@next/env": 16.4.6
       "@swc/helpers": 0.5.23
       baseline-browser-mapping: 2.11.39
-      caniuse-lite: 1.0.30001827
+      caniuse-lite: 1.0.30001828
       postcss: 8.5.23
       react: 19.3.1
       react-dom: 19.3.1(react@19.3.1)
@@ -4140,7 +4140,7 @@ snapshots:
       "@next/swc-win32-arm64-msvc": 16.4.6
       "@next/swc-win32-x64-msvc": 16.4.6
       "@opentelemetry/api": 1.10.0
-      sharp: 0.35.5(@types/node@26.6.6)
+      sharp: 0.35.5(@types/node@26.6.10)
     transitivePeerDependencies:
       - "@babel/core"
       - "@types/node"
@@ -4243,7 +4243,7 @@ snapshots:
 
   rollup@4.68.8:
     dependencies:
-      "@types/estree": 1.0.10
+      "@types/estree": 1.0.11
     optionalDependencies:
       "@rollup/rollup-android-arm-eabi": 4.68.8
       "@rollup/rollup-android-arm64": 4.68.8
@@ -4285,7 +4285,7 @@ snapshots:
 
   sentry@0.50.0: {}
 
-  sharp@0.35.5(@types/node@26.6.6):
+  sharp@0.35.5(@types/node@26.6.10):
     dependencies:
       "@img/colour": 1.1.0
       detect-libc: 2.1.2
@@ -4316,7 +4316,7 @@ snapshots:
       "@img/sharp-win32-arm64": 0.35.5
       "@img/sharp-win32-ia32": 0.35.5
       "@img/sharp-win32-x64": 0.35.5
-      "@types/node": 26.6.6
+      "@types/node": 26.6.10
     optional: true
 
   shebang-command@2.0.0:

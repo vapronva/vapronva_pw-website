@@ -17,7 +17,7 @@ export default function AboutSection() {
             <source
               src="https://cdn.engineering/vapronva-pw/videos/pfp-2022-hdred.mp4"
               type="video/mp4"
-              media="(dynamic-range: high)"
+              media="(dynamic-range: high) and (prefers-reduced-motion: no-preference)"
             />
           </video>
         </Magic>

@@ -36,7 +36,17 @@ export default async function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html:
-              'try{var t=localStorage.theme;if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}',
+              'function a(){try{var t=localStorage.theme;if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}}a();addEventListener("pageshow",a)',
+          }}
+        />
+        <script
+          type="speculationrules"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              prefetch: [
+                { where: { href_matches: "/*" }, eagerness: "moderate" },
+              ],
+            }),
           }}
         />
       </head>

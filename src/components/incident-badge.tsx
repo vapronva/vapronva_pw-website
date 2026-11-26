@@ -77,18 +77,24 @@ async function fetchStatus(): Promise<Status> {
 export default function IncidentBadge() {
   const [status, setStatus] = useState<Status>("loading");
   useEffect(() => {
-    let isActive = true;
-    const poll = () =>
-      fetchStatus()
+    let latestPollId = 0;
+    const poll = () => {
+      if (document.hidden) return;
+      latestPollId += 1;
+      const pollId = latestPollId;
+      void fetchStatus()
         .catch((): Status => "error")
         .then((nextStatus) => {
-          if (isActive) setStatus(nextStatus);
+          if (pollId === latestPollId) setStatus(nextStatus);
         });
-    void poll();
-    const intervalId = setInterval(() => void poll(), POLL_INTERVAL_MS);
+    };
+    poll();
+    const intervalId = setInterval(poll, POLL_INTERVAL_MS);
+    document.addEventListener("visibilitychange", poll);
     return () => {
-      isActive = false;
+      latestPollId += 1;
       clearInterval(intervalId);
+      document.removeEventListener("visibilitychange", poll);
     };
   }, []);
   const badge = badges[status];
@@ -97,7 +103,7 @@ export default function IncidentBadge() {
       <a
         href="https://status.cmld.ru"
         target="_blank"
-        className={`flex items-center gap-2 rounded-full px-4 py-2 font-medium shadow-md transition-all duration-200 glass:border glass:border-white/10 glass:bg-white/6 glass:ring-1 glass:backdrop-blur-2xl glass:backdrop-saturate-150 ${badge.className}`}
+        className={`flex items-center gap-2 rounded-full px-4 py-2 font-medium shadow-md transition-all duration-200 glass:bg-white/6 glass:ring-1 glass:inset-ring glass:inset-ring-white/10 glass:backdrop-blur-2xl glass:backdrop-saturate-150 ${badge.className}`}
       >
         {badge.icon}
         {badge.label}

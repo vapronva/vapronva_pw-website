@@ -26,7 +26,7 @@ export default function Cv({ lang }: { lang: Lang }) {
   return (
     <div className="flex min-h-dvh flex-col bg-cv-bg font-features-['cv11','ss03'] text-cv-ink scheme-light-dark theme-light:scheme-light theme-dark:scheme-dark">
       <header className="bg-cv-surface">
-        <div className="mx-auto flex max-w-360 items-center gap-4.5 px-5 py-5 sm:px-12">
+        <div className="mx-auto flex max-w-360 items-center gap-4.5 px-5 py-5 max-[360px]:gap-3 sm:px-12">
           <Magic name="avatar">
             <Image
               src="https://cdn.engineering/vapronva-pw/images/pfp/new-2022-hkc-out.jpeg"
@@ -34,12 +34,11 @@ export default function Cv({ lang }: { lang: Lang }) {
               width={56}
               height={56}
               loading="eager"
-              unoptimized
               className="size-14 shrink-0 rounded-[14px] object-cover"
             />
           </Magic>
           <div className="flex min-w-0 flex-1 flex-col gap-0.75">
-            <h1 className="text-2xl/[1.1] font-semibold tracking-tight">
+            <h1 className="text-xl/[1.1] font-semibold tracking-tight min-[360px]:text-2xl/[1.1]">
               {content.name}
             </h1>
             <p className="text-sm/[1.3] font-[450] text-cv-accent">
@@ -47,7 +46,7 @@ export default function Cv({ lang }: { lang: Lang }) {
               <span className="font-[350] text-cv-muted">, Selectel</span>
             </p>
           </div>
-          <div className="flex shrink-0 items-center gap-2">
+          <div className="flex shrink-0 items-center gap-2 print:hidden">
             <ThemeToggle label={content.theme} />
             <a
               href={`/${otherLang}`}

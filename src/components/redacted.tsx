@@ -6,7 +6,7 @@ export default function Redacted({
   children: string;
 }) {
   return (
-    <span className="bg-current select-none">
+    <span className="bg-current select-none [print-color-adjust:exact]">
       <span aria-hidden="true" className="text-transparent">
         {children}
       </span>

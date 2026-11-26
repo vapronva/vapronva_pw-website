@@ -32,7 +32,7 @@ export default function ProjectItem({
   );
   return (
     <div className="flex flex-col py-1">
-      <div className="-mt-0.5 flex flex-row flex-wrap items-center">
+      <div className="-mt-0.5 flex flex-row flex-wrap items-center gap-x-2">
         {isRedacted ? (
           <div className="relative">
             {heading}
@@ -42,7 +42,7 @@ export default function ProjectItem({
           heading
         )}
         {links.length > 0 ? (
-          <div className="-mt-0.5 ml-2 flex flex-row flex-wrap items-center gap-2">
+          <div className="-mt-0.5 flex flex-row flex-wrap items-center gap-2">
             {links.map(({ href, icon: Icon }) => (
               <a
                 key={href}
